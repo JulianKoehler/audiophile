@@ -1,9 +1,9 @@
 import { Card, ChakraProps, HStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import ProductCardProps from "../../../interfaces/CardProps";
+import ProductPresentationCardProps from "../../../types/CardProps";
 import CustomButton from "../../UI/CustomButton";
 
-const ThirdLineProduct = ({ title, image, slug }: ProductCardProps) => {
+const ThirdLineProduct = ({ title, image, slug }: ProductPresentationCardProps) => {
   return (
     <HStack gap="3rem">
       <Card

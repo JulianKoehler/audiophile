@@ -83,6 +83,7 @@ const GlobalStyles = createGlobalStyle`
     line-height: 1.9rem;
     letter-spacing: 1rem;
     text-transform: uppercase;
+    color: var(--dark-orange);
   }
 
   sub {

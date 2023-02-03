@@ -1,16 +1,22 @@
-import React from "react";
-import LocalHeader from "../components/Header/LocalHeader";
+import { useLoaderData } from "react-router-dom";
+import ProductCategoryPageLayout from "../components/Layout/ProductCategoryPageLayout";
+import Product from "../types/Product";
+import getProductData from "../util/getProductPreviewData";
 
 const Speakers = () => {
+  const productData = useLoaderData() as Product[];
+
   return (
-    <>
-      <LocalHeader
-        color="white"
-        p="9.8rem">
-        <h2>speakers</h2>
-      </LocalHeader>
-    </>
+    <ProductCategoryPageLayout
+      productData={productData}
+      pageHeading="speakers"
+    />
   );
 };
 
 export default Speakers;
+
+export async function loader() {
+  const query = `?orderBy="category"&equalTo="speakers"`;
+  return await getProductData(query);
+}

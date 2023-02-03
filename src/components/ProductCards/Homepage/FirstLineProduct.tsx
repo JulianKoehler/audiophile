@@ -1,7 +1,7 @@
 import { Card, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import circles from "../../../assets/home/desktop/pattern-circles.svg";
-import { FirstLineCardProps } from "../../../interfaces/CardProps";
+import { FirstLineCardProps } from "../../../types/CardProps";
 import CustomButton from "../../UI/CustomButton";
 
 const FirstLineProduct = ({ title, image, description, slug }: FirstLineCardProps) => {

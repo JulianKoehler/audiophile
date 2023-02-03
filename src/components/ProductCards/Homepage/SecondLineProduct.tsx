@@ -1,10 +1,10 @@
 import { Card, ChakraProps, VStack } from "@chakra-ui/react";
 import React from "react";
 import { Link } from "react-router-dom";
-import ProductCardProps from "../../../interfaces/CardProps";
+import ProductPresentationCardProps from "../../../types/CardProps";
 import CustomButton from "../../UI/CustomButton";
 
-const SecondLineProduct = ({ title, image, slug }: ProductCardProps) => {
+const SecondLineProduct = ({ title, image, slug }: ProductPresentationCardProps) => {
   return (
     <Card
       bgImg={image}
