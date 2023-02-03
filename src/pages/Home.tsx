@@ -1,10 +1,10 @@
-import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Link } from "react-router-dom";
 import heroImage from "../assets/home/desktop/image-hero.jpg";
 import About from "../components/About/About";
 import CategoryCards from "../components/CategoryCards/CategoryCards";
-import Footer from "../components/Footer/Footer";
 import LocalHeader from "../components/Header/LocalHeader";
-import ProductCards from "../components/ProductCards/ProductCards";
+import ProductPresentationCards from "../components/ProductCards/Homepage/ProductPresentationCards";
 import CustomButton from "../components/UI/CustomButton";
 
 const Home = () => {
@@ -13,7 +13,7 @@ const Home = () => {
       <LocalHeader transform="translateY(-9rem)">
         <HStack
           justifyContent="center"
-          filter="contrast(1.23)" // the black tone of the image is too washed out so I increased contrast
+          filter="contrast(1.25)" // the black tone of the image is too washed out so I increased contrast
           w="100%"
           bg="var(--header-black)">
           <VStack
@@ -46,7 +46,9 @@ const Home = () => {
               Experience natural, lifelike audio and exceptional build quality made for the passionate music
               enthusiast.
             </Text>
-            <CustomButton mt="1.6rem !important">see product</CustomButton>
+            <Link to="/headphones/xx99-mark-two-headphones">
+              <CustomButton mt="1.6rem !important">see product</CustomButton>
+            </Link>
           </VStack>
           <Image
             marginInline="auto"
@@ -61,7 +63,7 @@ const Home = () => {
         pb="20rem"
         gap="18rem">
         <CategoryCards />
-        <ProductCards />
+        <ProductPresentationCards />
         <About />
       </VStack>
     </>

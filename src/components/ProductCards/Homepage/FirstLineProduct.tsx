@@ -1,15 +1,10 @@
-import { Card, ChakraProps, Image, Text, VStack } from "@chakra-ui/react";
+import { Card, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import circles from "../../assets/home/desktop/pattern-circles.svg";
-import CustomButton from "../UI/CustomButton";
+import circles from "../../../assets/home/desktop/pattern-circles.svg";
+import { FirstLineCardProps } from "../../../interfaces/CardProps";
+import CustomButton from "../../UI/CustomButton";
 
-interface CardProps extends ChakraProps {
-  title: string;
-  image: string;
-  description: string;
-}
-
-const FirstLineProduct = ({ title, image, description }: CardProps) => {
+const FirstLineProduct = ({ title, image, description, slug }: FirstLineCardProps) => {
   return (
     <Card
       pos="relative"
@@ -44,7 +39,7 @@ const FirstLineProduct = ({ title, image, description }: CardProps) => {
           color="rgba(255,255,255,0.75)">
           {description}
         </Text>
-        <Link to="/">
+        <Link to={slug}>
           <CustomButton
             variant="black"
             mt="1.6rem">
