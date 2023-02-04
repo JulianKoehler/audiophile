@@ -1,13 +1,12 @@
 import { json } from "react-router-dom";
-import firebaseConfig from "../firebase";
 
-async function getProductData(query: string = "") {
+export async function getProductData(db: string, query: string = "") {
   try {
-    const res = await fetch(firebaseConfig.dbURL + query);
+    const res = await fetch(db + query);
 
     if (!res.ok) {
       throw json({
-        message: "Could not load headphones",
+        message: "Could not load product data",
         status: res.status,
         statusText: res.statusText,
       });
@@ -20,5 +19,3 @@ async function getProductData(query: string = "") {
     return err;
   }
 }
-
-export default getProductData;

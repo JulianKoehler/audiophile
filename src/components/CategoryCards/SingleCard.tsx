@@ -13,6 +13,7 @@ const SingleCard = ({ image, title }: CardProps) => {
       bg="var(--light-grey)"
       w="35rem"
       h="20.4rem"
+      mt="8rem"
       display="flex"
       flexDirection="column"
       alignItems="center"

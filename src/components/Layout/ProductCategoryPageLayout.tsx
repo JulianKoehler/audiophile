@@ -1,4 +1,4 @@
-import { VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
 import Product from "../../types/Product";
 import About from "../About/About";
 import CategoryCards from "../CategoryCards/CategoryCards";
@@ -36,7 +36,11 @@ const ProductCategoryPageLayout = ({ productData, pageHeading }: Props) => {
       <LocalHeader
         color="white"
         p="9.8rem">
-        <h2>{pageHeading}</h2>
+        <Text
+          as="h2"
+          color="white">
+          {pageHeading}
+        </Text>
       </LocalHeader>
       <VStack
         as="main"

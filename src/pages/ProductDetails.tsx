@@ -1,13 +1,24 @@
-import { useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
+import ProductDetailPageLayout from "../components/Layout/ProductDetailPageLayout";
+import firebaseConfig from "../firebase";
+import Product from "../types/Product";
+import { getProductData } from "../util/httpRequests";
 
 const ProductDetails = () => {
-  const params = useParams();
+  const productData = useLoaderData() as Product[];
 
-  return (
-    <div>
-      <h2>{params.productID}</h2>
-    </div>
-  );
+  return <ProductDetailPageLayout product={productData[0]} />;
 };
 
 export default ProductDetails;
+
+interface Params {
+  productSlug: string;
+}
+
+export async function loader({ params }: { params: Params }) {
+  const productSlug = params.productSlug;
+
+  const query = `?orderBy="slug"&equalTo="${productSlug}"`;
+  return await getProductData(firebaseConfig.dbProductsBySlug, query);
+}

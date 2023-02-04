@@ -4,6 +4,7 @@ import CustomerImage from "../../assets/shared/desktop/image-best-gear.jpg";
 const About = () => {
   return (
     <HStack
+      as="section"
       maxW="111rem"
       gap="12.5rem">
       <VStack

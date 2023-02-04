@@ -10,6 +10,9 @@ const customTheme = extendTheme({
       },
     },
   },
+  shadows: {
+    outline: "",
+  },
 });
 
 export default customTheme;

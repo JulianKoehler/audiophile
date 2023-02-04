@@ -31,26 +31,23 @@ interface Product {
     tablet: string;
   };
   includes: {
-    [index: number]: {
-      item: string;
-      quantity: number;
-    };
-  };
+    item: string;
+    quantity: number;
+  }[];
   name: string;
   new: boolean;
-  others: {
-    [index: number]: {
-      image: {
-        desktop: string;
-        mobile: string;
-        tablet: string;
-      };
-      name: string;
-      slug: number;
+  others: Array<{
+    category: string;
+    image: {
+      desktop: string;
+      mobile: string;
+      tablet: string;
     };
-  };
+    name: string;
+    slug: string;
+  }>;
   price: number;
-  slug: "string";
+  slug: string;
 }
 
 export default Product;

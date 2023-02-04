@@ -59,7 +59,7 @@ const Home = () => {
       </LocalHeader>
       <VStack
         as="main"
-        mt="11rem"
+        mt="4rem"
         pb="20rem"
         gap="18rem">
         <CategoryCards />

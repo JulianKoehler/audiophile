@@ -1,6 +1,7 @@
 import { Card, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import CustomButton from "../../UI/CustomButton";
+import ProductImageCard from "../Image/ProductImageCard";
 
 type ProductPreviewProps = {
   image: string;
@@ -24,21 +25,12 @@ const ProductPreviewArticle = ({
   infront or behind the VStack with the information */
   const indexIsOdd = (index + 1) % 2 > 0;
 
-  const productImage = (
-    <Card w="54rem">
-      <Image
-        src={image}
-        alt="the previewed product"
-      />
-    </Card>
-  );
-
   return (
     <HStack
       as="article"
       w="111rem"
       gap="12.5rem">
-      {indexIsOdd && productImage}
+      {indexIsOdd && <ProductImageCard image={image} />}
       <VStack
         w="44.5rem"
         alignItems="flex-start">
@@ -58,7 +50,7 @@ const ProductPreviewArticle = ({
           <CustomButton>see product</CustomButton>
         </Link>
       </VStack>
-      {!indexIsOdd && productImage}
+      {!indexIsOdd && <ProductImageCard image={image} />}
     </HStack>
   );
 };

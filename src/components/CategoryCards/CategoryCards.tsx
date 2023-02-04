@@ -8,6 +8,7 @@ import SingleCard from "./SingleCard";
 const CategoryCards = () => {
   return (
     <HStack
+      as="section"
       justifyContent="center"
       gap="3rem">
       <Link to="/headphones">

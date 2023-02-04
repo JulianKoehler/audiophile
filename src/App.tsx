@@ -7,7 +7,7 @@ import Speakers, { loader as speakersLoader } from "./pages/Speakers";
 import Earphones, { loader as earphonesLoader } from "./pages/Earphones";
 import { ThemeProvider } from "@chakra-ui/react";
 import customTheme from "./styles/ChakraComponentAdjustments";
-import ProductDetails from "./pages/ProductDetails";
+import ProductDetails, { loader as productLoader } from "./pages/ProductDetails";
 
 function App() {
   const router = createBrowserRouter([
@@ -17,16 +17,16 @@ function App() {
       children: [
         { index: true, element: <Home /> },
         { path: "headphones", element: <Headphones />, loader: headphonesLoader },
-        { path: "headphones/:productID", element: <ProductDetails /> },
+        { path: "headphones/:productSlug", element: <ProductDetails />, loader: productLoader },
         { path: "speakers", element: <Speakers />, loader: speakersLoader },
-        { path: "speakers/:productID", element: <ProductDetails /> },
+        { path: "speakers/:productSlug", element: <ProductDetails />, loader: productLoader },
         { path: "earphones", element: <Earphones />, loader: earphonesLoader },
-        { path: "earphones/:productID", element: <ProductDetails /> },
+        { path: "earphones/:productSlug", element: <ProductDetails />, loader: productLoader },
       ],
     },
   ]);
 
-  // console.log(customTheme);
+  console.log(customTheme);
 
   return (
     <ThemeProvider theme={customTheme}>

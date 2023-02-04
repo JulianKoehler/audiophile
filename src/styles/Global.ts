@@ -51,31 +51,38 @@ const GlobalStyles = createGlobalStyle`
     font-size: 4rem;
     line-height: 4.4rem;
     letter-spacing: 0.15rem;
-
+    color: black;
   }
 
   h3 {
     font-size: 3.2rem;
     line-height: 3.6rem;
     letter-spacing: 0.115rem;
+    color: black;
   }
 
   h4 {
     font-size: 2.8rem;
     line-height: 3.8rem;
     letter-spacing: 0.2rem;
+    color: black;
+
   }
 
   h5 {
     font-size: 2.4rem;
     line-height: 3.3rem;
     letter-spacing: 0.17rem;
+    color: black;
+
   }
 
   h6 {
     font-size: 1.8rem;
     line-height: 2.4rem;
     letter-spacing: 0.13rem;
+    color: black;
+
   }
 
   sup {
