@@ -2,16 +2,21 @@ import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
   components: {
-    Card: {
-      baseStyle: {
-        container: {
-          borderRadius: "0.8rem",
+    Modal: {
+      sizes: {
+        md: {
+          dialog: {
+            maxW: "50rem",
+          },
         },
       },
     },
   },
   shadows: {
     outline: "",
+  },
+  radii: {
+    md: "0.8rem",
   },
 });
 

@@ -1,9 +1,15 @@
-import { Card, Image } from "@chakra-ui/react";
+import { Card, ChakraProps, Image } from "@chakra-ui/react";
 
-const ProductImageCard = ({ image }: { image: string }) => {
-  console.log(image);
+interface ProductImageCard extends ChakraProps {
+  image: string;
+  [rest: string]: any;
+}
+
+const ProductImageCard = ({ image, ...rest }: ProductImageCard) => {
   return (
-    <Card w="54rem">
+    <Card
+      w="54rem"
+      {...rest}>
       <Image
         src={image}
         alt="the product"

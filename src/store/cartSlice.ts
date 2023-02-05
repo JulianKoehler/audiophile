@@ -12,7 +12,7 @@ interface CartItem {
 }
 
 interface AdjustItemQuantityPayload {
-  id: string | number;
+  id: number;
   quantity: number;
 }
 
@@ -63,8 +63,8 @@ export const cartSlice = createSlice({
         state.totalQuantity--;
         state.totalSum -= cartItem!.price;
       } else {
-        state.totalQuantity -= quantity;
-        state.totalSum -= cartItem!.price * quantity;
+        state.totalQuantity = state.items.reduce((total, item) => (total += item.quantity), 0);
+        state.totalSum = state.items.reduce((total, item) => (total += item.quantity * item.price), 0);
       }
     },
     clearCart: () => initialState,

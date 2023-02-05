@@ -26,7 +26,7 @@ function App() {
     },
   ]);
 
-  // console.log(customTheme);
+  console.log(customTheme);
 
   return (
     <ThemeProvider theme={customTheme}>

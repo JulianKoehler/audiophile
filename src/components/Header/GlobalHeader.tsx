@@ -1,10 +1,12 @@
-import { Box, Container, HStack, Image, VStack } from "@chakra-ui/react";
+import { Box, Container, HStack, Image, useDisclosure, VStack } from "@chakra-ui/react";
 import logo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 import Navbar from "../Navbar/Navbar";
 import { Link } from "react-router-dom";
+import CartModal from "../Modals/CartModal";
 
 const GlobalHeader = () => {
+  const { isOpen, onOpen, onClose } = useDisclosure();
   return (
     <VStack
       as="header"
@@ -26,7 +28,9 @@ const GlobalHeader = () => {
           />
         </Link>
         <Navbar />
-        <Box cursor="pointer">
+        <Box
+          onClick={onOpen}
+          cursor="pointer">
           <Image
             src={cartIcon}
             alt="Click me to open the cart menu"
@@ -35,6 +39,10 @@ const GlobalHeader = () => {
           />
         </Box>
       </HStack>
+      <CartModal
+        isOpen={isOpen}
+        onClose={onClose}
+      />
     </VStack>
   );
 };

@@ -1,8 +1,8 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { addItemToCart } from "../../store/cartSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
+import { useAppDispatch } from "../../store/hooks";
 import Product from "../../types/Product";
 import numberWithCommas from "../../util/formatPrice";
 import ProductImageCard from "../ProductCards/Image/ProductImageCard";
@@ -15,10 +15,11 @@ const OrderSection = ({ product }: { product: Product }) => {
   const dispatch = useAppDispatch();
   const isNew = product.new;
 
-  /**  For Numerinputs from ChakraUI the paramter needs to be namend valueAsString in order for the
-   * function to work */
-  function changeQuantityHandler(valueAsString: string) {
-    setItemQuantity(Number(valueAsString));
+  /**  For Numerinputs from ChakraUI expect TWO paramters needs to be namend valueAsString and
+   * valueAsNumber in order to work properly
+   */
+  function changeQuantityHandler(valueAsString: string, valueAsNumber: number) {
+    setItemQuantity(valueAsNumber);
   }
 
   function addItemToCartHandler() {
@@ -77,8 +78,6 @@ const OrderSection = ({ product }: { product: Product }) => {
           </Text>
           <HStack gap="1.6rem">
             <QuantityInput
-              w="12rem"
-              h="4.8rem"
               onChange={changeQuantityHandler}
               value={itemQuantity}
             />
