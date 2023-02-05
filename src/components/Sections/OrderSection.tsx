@@ -1,5 +1,8 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { addItemToCart } from "../../store/cartSlice";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Product from "../../types/Product";
 import numberWithCommas from "../../util/formatPrice";
 import ProductImageCard from "../ProductCards/Image/ProductImageCard";
@@ -7,8 +10,30 @@ import CustomButton from "../UI/CustomButton";
 import QuantityInput from "../UI/QuantityInput";
 
 const OrderSection = ({ product }: { product: Product }) => {
+  const [itemQuantity, setItemQuantity] = useState<number>(1);
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const isNew = product.new;
+
+  /**  For Numerinputs from ChakraUI the paramter needs to be namend valueAsString in order for the
+   * function to work */
+  function changeQuantityHandler(valueAsString: string) {
+    setItemQuantity(Number(valueAsString));
+  }
+
+  function addItemToCartHandler() {
+    dispatch(
+      addItemToCart({
+        id: product.id,
+        name: product.name,
+        price: product.price,
+        image: product.image.mobile,
+        quantity: itemQuantity,
+        category: product.category,
+        slug: product.slug,
+      })
+    );
+  }
 
   return (
     <VStack as="section">
@@ -54,8 +79,10 @@ const OrderSection = ({ product }: { product: Product }) => {
             <QuantityInput
               w="12rem"
               h="4.8rem"
+              onChange={changeQuantityHandler}
+              value={itemQuantity}
             />
-            <CustomButton>add to cart</CustomButton>
+            <CustomButton onClick={addItemToCartHandler}>add to cart</CustomButton>
           </HStack>
         </VStack>
       </HStack>

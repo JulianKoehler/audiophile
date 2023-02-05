@@ -1,32 +1,40 @@
 import {
   ChakraProps,
+  InputElementProps,
+  InputGroupProps,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
   NumberInputField,
+  NumberInputProps,
   NumberInputStepper,
 } from "@chakra-ui/react";
 
-interface InputProps extends ChakraProps {
+interface InputProps extends NumberInputProps {
+  w: string | number;
+  h: string | number;
   [rest: string]: any;
 }
 
-const QuantityInput = ({ ...rest }: InputProps) => {
+const QuantityInput = ({ w, h, ...rest }: InputProps) => {
   return (
     <NumberInput
       defaultValue={1}
       bg="var(--light-grey)"
       display="inline"
       borderRadius="0"
-      min={1}>
+      min={1}
+      max={100}
+      {...rest}>
       <NumberInputField
         textAlign="center"
         fontSize="1.3rem"
         fontWeight="700"
         color="black"
-        {...rest} // position and padding should not be altered by any mean
         position="relative"
         padding={0}
+        w={w}
+        h={h}
       />
       <NumberInputStepper w="0">
         <NumberIncrementStepper
