@@ -35,6 +35,7 @@ interface Product {
     quantity: number;
   }[];
   name: string;
+  name_short: string;
   new: boolean;
   others: Array<{
     category: string;

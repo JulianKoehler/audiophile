@@ -2,11 +2,17 @@ import { Box, Container, HStack, Image, useDisclosure, VStack } from "@chakra-ui
 import logo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 import Navbar from "../Navbar/Navbar";
-import { Link } from "react-router-dom";
-import CartModal from "../Modals/CartModal";
+import { Link, useLocation } from "react-router-dom";
+import CartModal from "../Modals/CartModal/CartModal";
 
 const GlobalHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();
+  const { pathname } = useLocation();
+
+  function openCartHandler() {
+    pathname === "/checkout" ? null : onOpen();
+  }
+
   return (
     <VStack
       as="header"
@@ -29,7 +35,7 @@ const GlobalHeader = () => {
         </Link>
         <Navbar />
         <Box
-          onClick={onOpen}
+          onClick={openCartHandler}
           cursor="pointer">
           <Image
             src={cartIcon}

@@ -1,4 +1,6 @@
 import { json } from "react-router-dom";
+import firebaseConfig from "../firebase";
+import { ICartItem } from "../store/cartSlice";
 
 export async function getProductData(db: string, query: string = "") {
   try {

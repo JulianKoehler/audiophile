@@ -8,8 +8,14 @@ import Earphones, { loader as earphonesLoader } from "./pages/Earphones";
 import { ThemeProvider } from "@chakra-ui/react";
 import customTheme from "./styles/ChakraComponentAdjustments";
 import ProductDetails, { loader as productLoader } from "./pages/ProductDetails";
+import Checkout from "./pages/Checkout";
+import { useEffect } from "react";
+import { useAppDispatch } from "./store/hooks";
+import { getCartData } from "./store/cartActions";
 
 function App() {
+  const dispatch = useAppDispatch();
+
   const router = createBrowserRouter([
     {
       path: "/",
@@ -22,9 +28,14 @@ function App() {
         { path: "speakers/:productSlug", element: <ProductDetails />, loader: productLoader },
         { path: "earphones", element: <Earphones />, loader: earphonesLoader },
         { path: "earphones/:productSlug", element: <ProductDetails />, loader: productLoader },
+        { path: "checkout", element: <Checkout /> },
       ],
     },
   ]);
+
+  useEffect(() => {
+    dispatch(getCartData());
+  }, [dispatch]);
 
   console.log(customTheme);
 

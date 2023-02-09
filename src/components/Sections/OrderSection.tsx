@@ -1,8 +1,9 @@
 import { HStack, Text, VStack } from "@chakra-ui/react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import { sendCartData } from "../../store/cartActions";
 import { addItemToCart } from "../../store/cartSlice";
-import { useAppDispatch } from "../../store/hooks";
+import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import Product from "../../types/Product";
 import numberWithCommas from "../../util/formatPrice";
 import ProductImageCard from "../ProductCards/Image/ProductImageCard";
@@ -12,10 +13,12 @@ import QuantityInput from "../UI/QuantityInput";
 const OrderSection = ({ product }: { product: Product }) => {
   const [itemQuantity, setItemQuantity] = useState<number>(1);
   const navigate = useNavigate();
+  const { pathname } = useLocation();
   const dispatch = useAppDispatch();
+  const cart = useAppSelector(state => state.cart);
   const isNew = product.new;
 
-  /**  For Numerinputs from ChakraUI expect TWO paramters needs to be namend valueAsString and
+  /**  For Numberinputs from ChakraUI expect TWO paramters needs to be namend valueAsString and
    * valueAsNumber in order to work properly
    */
   function changeQuantityHandler(valueAsString: string, valueAsNumber: number) {
@@ -26,7 +29,7 @@ const OrderSection = ({ product }: { product: Product }) => {
     dispatch(
       addItemToCart({
         id: product.id,
-        name: product.name,
+        name: product.name_short,
         price: product.price,
         image: product.image.mobile,
         quantity: itemQuantity,
@@ -35,6 +38,14 @@ const OrderSection = ({ product }: { product: Product }) => {
       })
     );
   }
+
+  useEffect(() => {
+    setItemQuantity(1);
+  }, [pathname]);
+
+  useEffect(() => {
+    dispatch(sendCartData(cart));
+  }, [cart]);
 
   return (
     <VStack as="section">
