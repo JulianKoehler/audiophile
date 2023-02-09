@@ -12,14 +12,14 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import checkIcon from "../../../../assets/checkout/icon-order-confirmation.svg";
-import { clearCart, ICartItem } from "../../../../store/cartSlice";
-import { useAppDispatch } from "../../../../store/hooks";
-import numberWithCommas from "../../../../util/formatPrice";
-import CustomButton from "../../../UI/CustomButton";
-import CartItem from "../CartItem";
+import { useEffect, useState } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
+import checkIcon from "../../../assets/checkout/icon-order-confirmation.svg";
+import { clearCart, ICartItem } from "../../../store/cartSlice";
+import { useAppDispatch } from "../../../store/hooks";
+import numberWithCommas from "../../../util/formatPrice";
+import CustomButton from "../../UI/CustomButton";
+import CartItem from "../CartModal/CartItem";
 
 interface Props extends ChakraProps {
   isOpen: boolean;
@@ -32,6 +32,7 @@ interface Props extends ChakraProps {
 const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", items, grandTotal }: Props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
+  const { pathname } = useLocation();
   const [showAllItems, setShowAllItems] = useState<boolean>(false);
 
   const orderedItems = items.map((item, index) => {
@@ -68,8 +69,11 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
 
   function handleCloseModal() {
     navigate("/");
-    dispatch(clearCart());
   }
+
+  useEffect(() => {
+    dispatch(clearCart());
+  }, [pathname]);
 
   return (
     <Modal
@@ -81,7 +85,9 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
       <ModalContent
         p="4.8rem"
         containerProps={{ alignItems: "center" }}>
-        <ModalHeader mb="3.3rem">
+        <ModalHeader
+          p={0}
+          mb="3.3rem">
           <Image
             src={checkIcon}
             alt="order confirmation"
@@ -95,8 +101,12 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
           <Text as="p">You will receive an email confirmation shortly.</Text>
           <Text as="p">Your order number is {orderNumber}.</Text>
         </ModalHeader>
-        <ModalBody mb="4.6rem">
-          <Card bg="var(--light-grey)">
+        <ModalBody
+          p={0}
+          mb="4.6rem">
+          <Card
+            w="44.4rem"
+            bg="var(--light-grey)">
             <HStack alignItems="stretch">
               <VStack
                 w="55%"
@@ -140,7 +150,7 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
             </HStack>
           </Card>
         </ModalBody>
-        <ModalFooter>
+        <ModalFooter p={0}>
           <CustomButton
             w="full"
             onClick={handleCloseModal}>

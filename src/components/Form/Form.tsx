@@ -21,7 +21,7 @@ import Summary from "./Summary";
 import * as Yup from "yup";
 import { sendOrder } from "../../store/cartActions";
 import { clearCart } from "../../store/cartSlice";
-import OrderConfirmationModal from "../Modals/CartModal/OrderConfirmation/OrderConfirmationModal";
+import OrderConfirmationModal from "../Modals/OrderConfirmation/OrderConfirmationModal";
 import { orderStatus } from "../../store/orderSlice";
 
 const Form = () => {
