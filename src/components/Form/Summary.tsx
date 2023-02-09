@@ -1,8 +1,11 @@
 import { Card, ChakraProps, HStack, Text, UnorderedList, VStack } from "@chakra-ui/react";
 import { CartState } from "../../store/cartSlice";
+import { useAppSelector } from "../../store/hooks";
+import { orderStatus } from "../../store/orderSlice";
 import numberWithCommas from "../../util/formatPrice";
 import CartItem from "../Modals/CartModal/CartItem";
 import CustomButton from "../UI/CustomButton";
+import LoadingSpinner from "../UI/LoadingSpinner";
 
 interface SummaryProps extends ChakraProps {
   cart: CartState;
@@ -12,6 +15,8 @@ interface SummaryProps extends ChakraProps {
 }
 
 const Summary = ({ cart, shippingCosts, vat, grandTotal }: SummaryProps) => {
+  const order = useAppSelector(state => state.order);
+
   const listOfItems = cart.items.map((item, index) => {
     return (
       <HStack
@@ -90,7 +95,9 @@ const Summary = ({ cart, shippingCosts, vat, grandTotal }: SummaryProps) => {
           </Text>
         </HStack>
       </VStack>
-      <CustomButton type="submit">continue & pay</CustomButton>
+      <CustomButton type="submit">
+        {order.orderStatus === orderStatus.SENDING ? <LoadingSpinner /> : "continue & pay"}
+      </CustomButton>
     </Card>
   );
 };

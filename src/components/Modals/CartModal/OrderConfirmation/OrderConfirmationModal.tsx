@@ -15,7 +15,8 @@ import {
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import checkIcon from "../../../../assets/checkout/icon-order-confirmation.svg";
-import { ICartItem } from "../../../../store/cartSlice";
+import { clearCart, ICartItem } from "../../../../store/cartSlice";
+import { useAppDispatch } from "../../../../store/hooks";
 import numberWithCommas from "../../../../util/formatPrice";
 import CustomButton from "../../../UI/CustomButton";
 import CartItem from "../CartItem";
@@ -30,6 +31,7 @@ interface Props extends ChakraProps {
 
 const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", items, grandTotal }: Props) => {
   const navigate = useNavigate();
+  const dispatch = useAppDispatch();
   const [showAllItems, setShowAllItems] = useState<boolean>(false);
 
   const orderedItems = items.map((item, index) => {
@@ -43,6 +45,7 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
 
     return (
       <HStack
+        key={item.id}
         gap="1.6rem"
         w="full"
         borderBottom={isLastItem ? "1px solid rgba(0,0,0, 0.08)" : "none"}
@@ -62,6 +65,11 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
       </HStack>
     );
   });
+
+  function handleCloseModal() {
+    navigate("/");
+    dispatch(clearCart());
+  }
 
   return (
     <Modal
@@ -96,14 +104,16 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
                 m="0 !important"
                 alignItems="flex-start">
                 {orderedItems}
-                <CustomButton
-                  variant="link"
-                  textTransform="none"
-                  letterSpacing={-0.2}
-                  margin="1.2rem auto 0 !important"
-                  onClick={() => setShowAllItems(prev => !prev)}>
-                  {showAllItems ? "View less" : `and ${items.length - 1} other item(s)`}
-                </CustomButton>
+                {items.length > 1 && (
+                  <CustomButton
+                    variant="link"
+                    textTransform="none"
+                    letterSpacing={-0.2}
+                    margin="1.2rem auto 0 !important"
+                    onClick={() => setShowAllItems(prev => !prev)}>
+                    {showAllItems ? "View less" : `and ${items.length - 1} other item(s)`}
+                  </CustomButton>
+                )}
               </VStack>
               <VStack
                 w="45%"
@@ -133,7 +143,7 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
         <ModalFooter>
           <CustomButton
             w="full"
-            onClick={() => navigate("/")}>
+            onClick={handleCloseModal}>
             back to home
           </CustomButton>
         </ModalFooter>

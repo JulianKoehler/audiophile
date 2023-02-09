@@ -53,7 +53,7 @@ const Form = () => {
       email: Yup.string().email("Invalid email address").required("Email Required"),
       phone: Yup.string().optional(),
       address: Yup.string().trim().min(10, "Too short for a street name").required("Required"),
-      zip: Yup.string().min(5, "Too short").required("Required"),
+      zip: Yup.string().min(5, "Too short").max(9, "Too long").required("Required"),
       city: Yup.string().required("Required"),
       country: Yup.string().required("Required"),
       eMoneyNumber: Yup.string().when("showEmoneyFields", {
