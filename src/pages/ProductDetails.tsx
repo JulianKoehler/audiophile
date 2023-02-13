@@ -12,7 +12,13 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-export async function loader({ params }: { params: any }) {
+interface RouteParams {
+  params: {
+    productSlug: string;
+  };
+}
+
+export async function loader({ params }: RouteParams) {
   const productSlug = params.productSlug;
 
   const query = `?orderBy="slug"&equalTo="${productSlug}"`;

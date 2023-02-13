@@ -6,8 +6,10 @@ import OrderSection from "../Sections/OrderSection";
 import FeatureSection from "../Sections/FeatureSection";
 import GallerySection from "../Sections/GallerySection";
 import YouMayAlsoLike from "../Sections/YouMayAlsoLike";
+import useBreakpoint from "../../hooks/useBreakpoint";
 
 const ProductDetailPageLayout = ({ product }: { product: Product }) => {
+  const { large, medium } = useBreakpoint();
   return (
     <VStack
       as="main"
@@ -15,14 +17,35 @@ const ProductDetailPageLayout = ({ product }: { product: Product }) => {
       mb="16rem"
       mt="7.9rem"
       w="100%"
-      px="16.5rem"
+      px={{
+        lg: "16.5rem",
+        md: "4rem",
+      }}
       alignItems="center">
       <OrderSection product={product} />
       <FeatureSection product={product} />
       <GallerySection
-        image1={product.gallery.first.desktop}
-        image2={product.gallery.second.desktop}
-        image3={product.gallery.third.desktop}
+        image1={
+          large
+            ? product.gallery.first.desktop
+            : medium
+            ? product.gallery.first.tablet
+            : product.gallery.first.mobile
+        }
+        image2={
+          large
+            ? product.gallery.second.desktop
+            : medium
+            ? product.gallery.second.tablet
+            : product.gallery.second.mobile
+        }
+        image3={
+          large
+            ? product.gallery.third.desktop
+            : medium
+            ? product.gallery.third.tablet
+            : product.gallery.third.mobile
+        }
       />
       <YouMayAlsoLike product={product} />
       <CategoryCards />

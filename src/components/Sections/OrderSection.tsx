@@ -1,6 +1,7 @@
-import { HStack, Text, VStack } from "@chakra-ui/react";
+import { HStack, Text, useMediaQuery, useStatStyles, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import useBreakpoint from "../../hooks/useBreakpoint";
 import { sendCartData } from "../../store/cartActions";
 import { addItemToCart } from "../../store/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -11,15 +12,16 @@ import CustomButton from "../UI/CustomButton";
 import QuantityInput from "../UI/QuantityInput";
 
 const OrderSection = ({ product }: { product: Product }) => {
-  const [itemQuantity, setItemQuantity] = useState<number>(1);
+  const [itemQuantity, setItemQuantity] = useState(1);
+  const cart = useAppSelector(state => state.cart);
+  const { large, medium } = useBreakpoint();
+  const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const { pathname } = useLocation();
-  const dispatch = useAppDispatch();
-  const cart = useAppSelector(state => state.cart);
   const isNew = product.new;
 
-  /**  For Numberinputs from ChakraUI expect TWO paramters needs to be namend valueAsString and
-   * valueAsNumber in order to work properly
+  /**  Numberinputs from ChakraUI expect TWO paramters which need to be namend valueAsString and
+   * valueAsNumber, otherwise TypeScript is complaining aboutthe onChange function on QuantityInput
    */
   function changeQuantityHandler(valueAsString: string, valueAsNumber: number) {
     setItemQuantity(valueAsNumber);
@@ -62,10 +64,31 @@ const OrderSection = ({ product }: { product: Product }) => {
           Go Back
         </CustomButton>
       </HStack>
-      <HStack gap="12.45rem">
-        <ProductImageCard image={product.image.desktop} />
+      <HStack
+        gap={{
+          lg: "12.45rem",
+          md: "6.9rem",
+        }}
+        minW={{
+          lg: "111rem",
+          md: "69rem",
+        }}>
+        <ProductImageCard
+          image={large ? product.image.desktop : medium ? product.image.tablet : product.image.mobile}
+          w={{
+            lg: "54rem",
+            md: "28rem",
+          }}
+          h={{
+            lg: "56rem",
+            md: "48rem",
+          }}
+        />
         <VStack
-          maxW="44.5rem"
+          maxW={{
+            lg: "44.5rem",
+            md: "34rem",
+          }}
           alignItems="flex-start">
           {isNew && <sup>new product</sup>}
           <Text
@@ -85,7 +108,7 @@ const OrderSection = ({ product }: { product: Product }) => {
             fontSize="1.8rem"
             fontWeight="700"
             mb="4.7rem !important">
-            {`$ ${numberWithCommas(product.price)}`}
+            {`${numberWithCommas(product.price)} €`}
           </Text>
           <HStack gap="1.6rem">
             <QuantityInput

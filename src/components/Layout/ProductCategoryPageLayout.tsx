@@ -1,4 +1,4 @@
-import { Text, VStack } from "@chakra-ui/react";
+import { Text, useMediaQuery, VStack } from "@chakra-ui/react";
 import Product from "../../types/Product";
 import About from "../About/About";
 import CategoryCards from "../CategoryCards/CategoryCards";
@@ -10,26 +10,30 @@ type Props = {
   pageHeading: "headphones" | "speakers" | "earphones";
 };
 
-/** TODO:
- *
- * Figure out how to pass the whole image object to the ProductPreviewArticle Component and make a srcset
- * to pick the image responsiveley.
- */
-
 const ProductCategoryPageLayout = ({ productData, pageHeading }: Props) => {
   const sortedData = productData.sort((product: Product) => (product.new ? -1 : 1));
+  const [lg] = useMediaQuery("(min-width: 73rem)");
+  const [md] = useMediaQuery("(min-width: 45rem)");
 
-  const productCards = sortedData.map((product: Product, index: number) => (
-    <ProductPreviewArticle
-      key={product.id}
-      image={product.image.desktop}
-      isNew={product.new}
-      name={product.name}
-      description={product.description}
-      linkToProduct={product.slug}
-      index={index}
-    />
-  ));
+  const productCards = sortedData.map((product: Product, index: number) => {
+    const imageSrc = lg
+      ? product.categoryImage.desktop
+      : md
+      ? product.categoryImage.tablet
+      : product.categoryImage.mobile;
+
+    return (
+      <ProductPreviewArticle
+        key={product.id}
+        image={imageSrc}
+        isNew={product.new}
+        name={product.name}
+        description={product.description}
+        linkToProduct={product.slug}
+        index={index}
+      />
+    );
+  });
 
   return (
     <>
@@ -47,7 +51,10 @@ const ProductCategoryPageLayout = ({ productData, pageHeading }: Props) => {
         gap="16rem"
         my="16rem"
         w="100%"
-        px="16.5rem"
+        px={{
+          lg: "16.5rem",
+          md: "4rem",
+        }}
         alignItems="center">
         {productCards}
         <CategoryCards />

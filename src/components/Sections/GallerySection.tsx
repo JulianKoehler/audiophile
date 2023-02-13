@@ -12,13 +12,22 @@ const GallerySection = ({ image1, image2, image3 }: GalleryProps) => {
     <Grid
       as="section"
       w="100%"
-      maxW="111rem"
+      maxW={{
+        lg: "111rem",
+        md: "69rem",
+      }}
       templateColumns="1fr 1fr">
       <GridItem
         display="flex"
         flexDirection="column"
-        gap="3.2rem"
-        w="44.5rem">
+        gap={{
+          lg: "3.2rem",
+          md: "2rem",
+        }}
+        w={{
+          lg: "44.5rem",
+          md: "27.7rem",
+        }}>
         <Image
           borderRadius="0.8rem"
           src={image1}
@@ -30,7 +39,11 @@ const GallerySection = ({ image1, image2, image3 }: GalleryProps) => {
           alt={image2}
         />
       </GridItem>
-      <GridItem w="63.5rem">
+      <GridItem
+        w={{
+          lg: "63.5rem",
+          md: "39.5rem",
+        }}>
         <Image
           borderRadius="0.8rem"
           src={image3}
