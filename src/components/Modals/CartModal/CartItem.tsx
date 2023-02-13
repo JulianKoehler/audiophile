@@ -12,12 +12,13 @@ type CartItemsProps = {
     price: number;
   };
   hasBoxShadow?: boolean;
+  isLink?: boolean;
 };
 
-const CartItem = ({ item, hasBoxShadow = true }: CartItemsProps) => {
+const CartItem = ({ item, hasBoxShadow = true, isLink = true }: CartItemsProps) => {
   return (
     <>
-      <Link to={`/${item.category}/${item.slug}`}>
+      <Link to={isLink ? `/${item.category}/${item.slug}` : ""}>
         <ProductImageCard
           image={item.image}
           w="6.4rem"
@@ -28,7 +29,7 @@ const CartItem = ({ item, hasBoxShadow = true }: CartItemsProps) => {
       <VStack
         alignItems="flex-start"
         mr="4.5rem">
-        <Link to={`/${item.category}/${item.slug}`}>
+        <Link to={isLink ? `/${item.category}/${item.slug}` : ""}>
           <Text
             color="black"
             fontSize="1.5rem"

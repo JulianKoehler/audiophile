@@ -11,8 +11,14 @@ const SingleCard = ({ image, title }: CardProps) => {
   return (
     <Card
       bg="var(--light-grey)"
-      w="35rem"
-      h="20.4rem"
+      w={{
+        lg: "35rem",
+        md: "22.3rem",
+      }}
+      h={{
+        lg: "20.4rem",
+        md: "16.5rem",
+      }}
       mt="8rem"
       display="flex"
       flexDirection="column"
@@ -24,7 +30,10 @@ const SingleCard = ({ image, title }: CardProps) => {
         },
       }}>
       <Image
-        h="16rem"
+        h="14rem"
+        mb={{
+          md: "-1.2rem",
+        }}
         src={image}
       />
       <h6>{title}</h6>

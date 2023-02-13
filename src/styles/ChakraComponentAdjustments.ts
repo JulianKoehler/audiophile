@@ -1,6 +1,11 @@
 import { extendTheme } from "@chakra-ui/react";
 
 const customTheme = extendTheme({
+  breakpoints: {
+    lg: "73rem",
+    md: "45rem",
+    sm: "0rem",
+  },
   components: {
     Modal: {
       sizes: {

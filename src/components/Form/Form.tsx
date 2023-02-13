@@ -44,6 +44,7 @@ const Form = () => {
       city: "",
       country: "",
       paymentMethod: "e_money",
+      showEmoneyFields: true,
       eMoneyNumber: "",
       eMoneyPIN: "",
     },
@@ -89,7 +90,7 @@ const Form = () => {
     },
   });
 
-  const showEmoneyFields = formik.values.paymentMethod === "e_money";
+  console.log(formik.values.paymentMethod);
 
   return (
     <form onSubmit={formik.handleSubmit}>
@@ -197,18 +198,26 @@ const Form = () => {
                 <Stack gap="1.6rem">
                   <CustomRadioButton
                     {...formik.getFieldProps("paymentMethod")}
+                    onChange={() => {
+                      formik.values.paymentMethod = "e_money";
+                      formik.values.showEmoneyFields = true;
+                    }}
                     value="e_money">
                     e-Money
                   </CustomRadioButton>
                   <CustomRadioButton
                     {...formik.getFieldProps("paymentMethod")}
+                    onChange={() => {
+                      formik.values.paymentMethod = "cash_on_delivery";
+                      formik.values.showEmoneyFields = false;
+                    }}
                     value="cash_on_delivery">
                     Cash on Delivery
                   </CustomRadioButton>
                 </Stack>
               </RadioGroup>
             </FormControl>
-            {showEmoneyFields ? (
+            {formik.values.paymentMethod === "e_money" ? (
               <HStack
                 gap="1.6rem"
                 mt="2.4rem !important">

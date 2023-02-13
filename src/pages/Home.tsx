@@ -1,6 +1,7 @@
-import { HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { HStack, Image, Text, useMediaQuery, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import heroImage from "../assets/home/desktop/image-hero.jpg";
+import heroImageLarge from "../assets/home/desktop/image-hero.jpg";
+import heroImageMedium from "../assets/home/tablet/image-header.jpg";
 import About from "../components/About/About";
 import CategoryCards from "../components/CategoryCards/CategoryCards";
 import LocalHeader from "../components/Header/LocalHeader";
@@ -8,6 +9,9 @@ import ProductPresentationCards from "../components/ProductCards/Homepage/Produc
 import CustomButton from "../components/UI/CustomButton";
 
 const Home = () => {
+  const [lg] = useMediaQuery("(min-width: 73rem)");
+  const imageSrc = lg ? heroImageLarge : heroImageMedium;
+
   return (
     <>
       <LocalHeader transform="translateY(-9rem)">
@@ -17,7 +21,11 @@ const Home = () => {
           w="100%"
           bg="var(--header-black)">
           <VStack
-            alignItems="flex-start"
+            alignItems={{
+              lg: "flex-start",
+              md: "center",
+            }}
+            textAlign={{ lg: "left", md: "center" }}
             gap="2.4rem"
             w="calc(100% - 33rem)"
             maxW="111rem"
@@ -53,7 +61,7 @@ const Home = () => {
           <Image
             marginInline="auto"
             maxHeight="73rem"
-            src={heroImage}
+            src={imageSrc}
           />
         </HStack>
       </LocalHeader>

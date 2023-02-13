@@ -33,7 +33,7 @@ const buttonStyleConfig = defineStyleConfig({
       },
     },
     outline: {
-      bg: "white",
+      bg: "transparent",
       color: "black",
       border: "1px solid black",
       _hover: {

@@ -5,24 +5,38 @@ import CustomButton from "../../UI/CustomButton";
 
 const ThirdLineProduct = ({ title, image, slug }: ProductPresentationCardProps) => {
   return (
-    <HStack gap="3rem">
+    <HStack
+      gap={{
+        lg: "3rem",
+        md: "1.1rem",
+      }}>
       <Card
-        w="54rem"
+        w={{
+          lg: "54rem",
+          md: "34rem",
+        }}
         h="32rem"
         bgImg={image}
+        bgSize="cover"
       />
       <Card
-        w="54rem"
+        w={{
+          lg: "54rem",
+          md: "34rem",
+        }}
         h="32rem"
         bg="var(--light-grey)"
         display="flex"
         flexDirection="column"
         justifyContent="center"
         gap="3.2rem"
-        pl="9.65rem">
+        pl={{
+          lg: "9.65rem",
+          md: "4.1rem",
+        }}>
         <h4>{title}</h4>
         <Link to={slug}>
-          <CustomButton variant="black">see product</CustomButton>
+          <CustomButton variant="outline">see product</CustomButton>
         </Link>
       </Card>
     </HStack>

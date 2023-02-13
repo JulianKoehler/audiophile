@@ -54,6 +54,7 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
         <CartItem
           item={item}
           hasBoxShadow={false}
+          isLink={false}
         />
         <Text
           opacity={0.5}
@@ -69,11 +70,8 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
 
   function handleCloseModal() {
     navigate("/");
-  }
-
-  useEffect(() => {
     dispatch(clearCart());
-  }, [pathname]);
+  }
 
   return (
     <Modal

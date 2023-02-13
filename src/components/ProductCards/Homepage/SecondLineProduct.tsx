@@ -8,7 +8,10 @@ const SecondLineProduct = ({ title, image, slug }: ProductPresentationCardProps)
   return (
     <Card
       bgImg={image}
-      w="111rem"
+      w={{
+        lg: "111rem",
+        md: "69rem",
+      }}
       h="32rem">
       <VStack
         alignItems="flex-start"
@@ -18,7 +21,7 @@ const SecondLineProduct = ({ title, image, slug }: ProductPresentationCardProps)
         gap="3.2rem">
         <h4>{title}</h4>
         <Link to={slug}>
-          <CustomButton variant="black">see product</CustomButton>
+          <CustomButton variant="outline">see product</CustomButton>
         </Link>
       </VStack>
     </Card>

@@ -1,15 +1,17 @@
-import { Box, HStack, Image, Text, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import { Link } from "react-router-dom";
 import logo from "../../assets/shared/desktop/logo.svg";
-import Navbar from "../Navbar/Navbar";
+import LgNavbar from "../Navbar/LgNavbar";
 
 const Footer = () => {
   return (
-    <HStack
+    <VStack
       as="footer"
-      px="16.5rem"
+      px={{
+        lg: "16.5rem",
+        md: "4rem",
+      }}
       pb="4.8rem"
       bg="var(--footer-black)"
       mt="auto"
@@ -24,20 +26,33 @@ const Footer = () => {
           w="10.1rem"
           h="0.4rem"
           bg="var(--dark-orange)"
-          mb="7.1rem"
+          mb={{
+            lg: "7.1rem",
+            md: "5.6rem",
+          }}
         />
-        <HStack
+        <Stack
           w="100%"
-          justifyContent="space-between">
+          flexDirection={{
+            lg: "row",
+            md: "column",
+          }}
+          justifyContent="space-between"
+          gap="3.2rem">
           <Image
             src={logo}
             alt="audiophile"
+            maxH="2.5rem"
+            maxW="14.3rem"
           />
-          <Navbar />
-        </HStack>
+          <LgNavbar fontSize="1.3rem" />
+        </Stack>
         <VStack
           alignItems="flex-start"
-          maxW="54rem"
+          maxW={{
+            lg: "54rem",
+            md: "unset",
+          }}
           color="rgba(255,255,255, 0.5)">
           <Text
             mt="3.6rem"
@@ -51,14 +66,20 @@ const Footer = () => {
         <HStack
           gap="1.6rem"
           color="white"
-          w="100%"
+          w="full"
           position="absolute"
-          top="16rem"
-          bottom="0"
+          bottom={{
+            lg: "13.6rem",
+            md: 0,
+          }}
           left="0"
           right="0"
           m="auto"
-          justifyContent="flex-end">
+          justifyContent="flex-end"
+          alignItems={{
+            lg: "center",
+            md: "flex-end",
+          }}>
           <a
             target="_blank"
             rel="noopener noreferrer"
@@ -88,7 +109,7 @@ const Footer = () => {
           </a>
         </HStack>
       </VStack>
-    </HStack>
+    </VStack>
   );
 };
 
