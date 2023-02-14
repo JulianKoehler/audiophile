@@ -23,7 +23,7 @@ const Checkout = () => {
       my="7.9rem"
       px={{
         lg: "16.5rem",
-        md: "4rem",
+        sm: "4rem",
       }}
       alignItems="center">
       <HStack

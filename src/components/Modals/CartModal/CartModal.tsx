@@ -27,7 +27,7 @@ type CartModalProps = {
 
 const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   const cart = useAppSelector(state => state.cart);
-  const { large } = useBreakpoint();
+  const { large, medium } = useBreakpoint();
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -83,8 +83,15 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
       onClose={onClose}>
       <ModalOverlay />
       <ModalContent
-        padding="3.1rem"
-        containerProps={{ justifyContent: "flex-end", paddingRight: large ? "16.5rem" : "4rem" }}>
+        w={{
+          md: "37.7rem",
+          sm: "32.7rem",
+        }}
+        padding={medium ? "3.1rem" : "2.8rem"}
+        containerProps={{
+          justifyContent: medium ? "flex-end" : "center",
+          paddingRight: large ? "16.5rem" : medium ? "4rem" : "0",
+        }}>
         <ModalHeader
           p={0}
           w="full">

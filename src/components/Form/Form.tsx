@@ -3,6 +3,7 @@ import {
   FormControl,
   FormErrorMessage,
   FormLabel,
+  Heading,
   HStack,
   Image,
   Input,
@@ -97,19 +98,24 @@ const Form = () => {
       <Stack
         flexDirection={{
           lg: "row",
-          md: "column",
+          sm: "column",
         }}
         alignItems="flex-start"
         gap="3rem">
         <Card padding="4.8rem">
-          <Text
+          <Heading
             as="h3"
+            size="2xl"
             mb="4.1rem">
             checkout
-          </Text>
+          </Heading>
           <Fieldset>
             <FormSectionHeading heading="billing details" />
-            <HStack
+            <Stack
+              flexDirection={{
+                md: "row",
+                sm: "column",
+              }}
               gap="1.6rem"
               mb="2.4rem !important"
               alignItems="flex-start">
@@ -132,7 +138,7 @@ const Form = () => {
                 />
                 <FormErrorMessage>{formik.errors.email}</FormErrorMessage>
               </FormControl>
-            </HStack>
+            </Stack>
             <FormControl isInvalid={!!formik.errors.phone && formik.touched.phone}>
               <FormLabel>Phone Number</FormLabel>
               <Input
@@ -150,14 +156,19 @@ const Form = () => {
               <FormLabel>Address</FormLabel>
               <Input
                 id="address"
-                size="lg"
+                size={{ md: "lg", sm: "md" }}
                 type="text"
                 placeholder="Am Lerchenberg 2b"
                 {...formik.getFieldProps("address")}
               />
               <FormErrorMessage>{formik.errors.address}</FormErrorMessage>
             </FormControl>
-            <HStack gap="1.6rem">
+            <Stack
+              gap="1.6rem"
+              flexDirection={{
+                md: "row",
+                sm: "column",
+              }}>
               <FormControl isInvalid={!!formik.errors.zip && formik.touched.zip}>
                 <FormLabel>ZIP Code</FormLabel>
                 <Input
@@ -178,7 +189,7 @@ const Form = () => {
                 />
                 <FormErrorMessage>{formik.errors.city}</FormErrorMessage>
               </FormControl>
-            </HStack>
+            </Stack>
             <FormControl isInvalid={!!formik.errors.country && formik.touched.country}>
               <FormLabel>Country</FormLabel>
               <Input
@@ -194,6 +205,10 @@ const Form = () => {
             <FormSectionHeading heading="payment details" />
             <FormControl
               display="flex"
+              flexDirection={{
+                md: "row",
+                sm: "column",
+              }}
               justifyContent="space-between">
               <FormLabel>Payment Method</FormLabel>
               <RadioGroup
@@ -222,8 +237,12 @@ const Form = () => {
               </RadioGroup>
             </FormControl>
             {formik.values.paymentMethod === "e_money" ? (
-              <HStack
+              <Stack
                 gap="1.6rem"
+                flexDirection={{
+                  md: "row",
+                  sm: "column",
+                }}
                 mt="2.4rem !important">
                 <FormControl isInvalid={!!formik.errors.eMoneyNumber && formik.touched.eMoneyNumber}>
                   <FormLabel>e-Money Number</FormLabel>
@@ -247,7 +266,7 @@ const Form = () => {
                   />
                   <FormErrorMessage>{formik.errors.eMoneyPIN}</FormErrorMessage>
                 </FormControl>
-              </HStack>
+              </Stack>
             ) : (
               <HStack
                 w="full"

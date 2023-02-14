@@ -40,7 +40,7 @@ const Summary = ({ cart, shippingCosts, vat, grandTotal }: SummaryProps) => {
     <Card
       w={{
         lg: "35rem",
-        md: "full",
+        sm: "full",
       }}
       h="fit-content"
       p="3.2rem"
