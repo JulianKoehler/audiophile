@@ -22,7 +22,10 @@ const MdNavbar = ({ ...rest }: NavbarProps) => {
     <>
       <Box
         role="button"
-        mr="4.2rem"
+        mr={{
+          md: "4.2rem",
+          sm: "0",
+        }}
         {...rest}
         onClick={onOpen}>
         <Image src={burgerMenuIcon} />
@@ -34,7 +37,10 @@ const MdNavbar = ({ ...rest }: NavbarProps) => {
         <ModalOverlay />
         <ModalContent
           maxW="full"
-          py="6.7rem"
+          p={{
+            md: "3rem 0 6.7rem",
+            sm: "8.4rem 0 2.5rem",
+          }}
           top="5rem"
           borderRadius="0 0 0.8rem 0.8rem">
           <ModalBody onClick={onClose}>

@@ -12,7 +12,10 @@ const Footer = () => {
         lg: "16.5rem",
         md: "4rem",
       }}
-      pb="4.8rem"
+      pb={{
+        md: "4.8rem",
+        sm: 0,
+      }}
       bg="var(--footer-black)"
       mt="auto"
       justifyContent="center">
@@ -21,23 +24,30 @@ const Footer = () => {
         w="100%"
         maxW="111rem"
         justifyContent="space-between"
-        alignItems="flex-start">
+        alignItems={{
+          md: "flex-start",
+          sm: "center",
+        }}>
         <Box
           w="10.1rem"
           h="0.4rem"
           bg="var(--dark-orange)"
           mb={{
             lg: "7.1rem",
-            md: "5.6rem",
+            sm: "5.6rem",
           }}
         />
         <Stack
           w="100%"
           flexDirection={{
             lg: "row",
-            md: "column",
+            sm: "column",
           }}
           justifyContent="space-between"
+          alignItems={{
+            md: "flex-start",
+            sm: "center",
+          }}
           gap="3.2rem">
           <Image
             src={logo}
@@ -48,15 +58,23 @@ const Footer = () => {
           <LgNavbar fontSize="1.3rem" />
         </Stack>
         <VStack
-          alignItems="flex-start"
+          alignItems={{
+            md: "flex-start",
+            sm: "center",
+          }}
           maxW={{
             lg: "54rem",
             md: "unset",
+            sm: "32.7rem",
           }}
           color="rgba(255,255,255, 0.5)">
           <Text
             mt="3.6rem"
-            mb="5.6rem">
+            mb="5.6rem"
+            textAlign={{
+              md: "left",
+              sm: "center",
+            }}>
             Audiophile is an all in one stop to fulfill your audio needs. We're a small team of music lovers
             and sound specialists who are devoted to helping you get the most out of personal audio. Come and
             visit our demo facility - we’re open 7 days a week.
@@ -67,7 +85,10 @@ const Footer = () => {
           gap="1.6rem"
           color="white"
           w="full"
-          position="absolute"
+          position={{
+            md: "absolute",
+            sm: "static",
+          }}
           bottom={{
             lg: "13.6rem",
             md: 0,
@@ -75,10 +96,17 @@ const Footer = () => {
           left="0"
           right="0"
           m="auto"
-          justifyContent="flex-end"
+          justifyContent={{
+            md: "flex-end",
+            sm: "center",
+          }}
           alignItems={{
             lg: "center",
             md: "flex-end",
+          }}
+          my={{
+            md: "unset !important",
+            sm: "3.8rem !important",
           }}>
           <a
             target="_blank"

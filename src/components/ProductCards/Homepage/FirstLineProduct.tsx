@@ -1,84 +1,95 @@
-import { Card, Image, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Card, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import circles from "../../../assets/home/desktop/pattern-circles.svg";
+import useBreakpoint from "../../../hooks/useBreakpoint";
 import { FirstLineCardProps } from "../../../types/CardProps";
 import CustomButton from "../../UI/CustomButton";
 
 const FirstLineProduct = ({ title, image, description, slug }: FirstLineCardProps) => {
+  const { large, medium } = useBreakpoint();
   return (
     <Card
       pos="relative"
       bgImage={circles}
       bgRepeat="no-repeat"
+      bgSize={{
+        lg: "90%",
+        md: "135%",
+        sm: "190%",
+      }}
       bgPos={{
-        lg: "-90% 0%",
-        md: "50% 134%",
+        lg: "-18rem 10%",
+        md: "50% -28rem",
+        sm: "50% -15rem",
       }}
       bgColor="var(--dark-orange)"
       overflow="hidden"
       w={{
         lg: "111rem",
         md: "69rem",
+        sm: "32.7rem",
       }}
       h={{
         lg: "56rem",
-        md: "72rem",
+        sm: "72rem",
       }}>
       <Image
         pos="absolute"
         w={{
           lg: "41rem",
-          md: "19.7rem",
+          sm: "19.7rem",
         }}
         top={{
           lg: "unset",
-          md: "5.2rem",
+          sm: "5.2rem",
         }}
         bottom={{
           lg: "-1.2rem",
-          md: "unset",
+          sm: "unset",
         }}
         left={{
           lg: "12rem",
-          md: "50%",
+          sm: "50%",
         }}
         transform={{
           lg: "unset",
-          md: "translateX(-50%)",
+          sm: "translateX(-50%)",
         }}
         src={image}
       />
       <VStack
         alignItems={{
           lg: "flex-start",
-          md: "center",
+          sm: "center",
         }}
         h="100%"
         justifyContent={{
           lg: "center",
-          md: "flex-end",
+          sm: "flex-end",
         }}
         mr="9.5rem"
         ml="auto"
         mb={{
           lg: "unset",
-          md: "6.4rem",
+          sm: "6.4rem",
         }}
         m={{
           lg: "0 9.5rem 0 auto",
-          md: "0 auto 6.4rem",
+          sm: "0 auto 6.4rem",
         }}
         textAlign={{
           lg: "left",
-          md: "center",
+          sm: "center",
         }}
         gap="2.4rem">
-        <Text
+        <Heading
           maxW="27rem"
-          as="h1">
+          as="h1"
+          size="4xl">
           {title}
-        </Text>
+        </Heading>
         <Text
+          w="80%"
           maxW="35rem"
           color="rgba(255,255,255,0.75)">
           {description}

@@ -7,6 +7,12 @@ const customTheme = extendTheme({
     sm: "0rem",
   },
   components: {
+    Heading: {
+      baseStyle: {
+        fontFamily: "inherit",
+        fontWeight: "700",
+      },
+    },
     Modal: {
       sizes: {
         md: {

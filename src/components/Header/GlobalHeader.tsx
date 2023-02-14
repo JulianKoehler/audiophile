@@ -20,6 +20,7 @@ const GlobalHeader = () => {
       px={{
         lg: "16.5rem",
         md: "4rem",
+        sm: "2.4rem",
       }}
       bg="var(--header-black)"
       zIndex="10"
@@ -30,6 +31,7 @@ const GlobalHeader = () => {
         justifyContent={{
           lg: "space-between",
           md: "flex-start",
+          sm: "space-between",
         }}
         py="3.2rem"
         borderBottom="1px solid rgba(255,255,255,0.2)">
@@ -37,6 +39,7 @@ const GlobalHeader = () => {
           display={{
             lg: "none",
             md: "block",
+            sm: "block",
           }}
         />
         <Link to="/">
@@ -49,7 +52,7 @@ const GlobalHeader = () => {
         <LgNavbar
           display={{
             lg: "block",
-            md: "none",
+            sm: "none",
           }}
         />
         <Box

@@ -1,7 +1,4 @@
 import {
-  ChakraProps,
-  InputElementProps,
-  InputGroupProps,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
@@ -38,18 +35,20 @@ const QuantityInput = ({ size = "lg", ...rest }: InputProps) => {
       <NumberInputStepper w="0">
         <NumberIncrementStepper
           children="+"
+          padding="1.5rem"
           fontSize="1.3rem"
           fontWeight="700"
           color="black"
           opacity="0.25"
           position="absolute"
           height="100%"
-          right={size === "lg" ? "2.2rem" : "1.8rem"}
+          right="0.5rem"
           top={0}
           _active={{ color: "var(--dark-orange)", opacity: "1" }}
         />
         <NumberDecrementStepper
           children="-"
+          padding="1rem"
           fontSize="1.3rem"
           fontWeight="700"
           color="black"
@@ -58,7 +57,6 @@ const QuantityInput = ({ size = "lg", ...rest }: InputProps) => {
           height="100%"
           right={size === "lg" ? "8.5rem" : "6rem"}
           top={0}
-          padding="1rem"
           _active={{ color: "var(--dark-orange)", opacity: "1" }}
         />
       </NumberInputStepper>

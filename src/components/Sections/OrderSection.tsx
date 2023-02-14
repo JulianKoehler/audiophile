@@ -1,4 +1,4 @@
-import { HStack, Text, useMediaQuery, useStatStyles, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Stack, Text, useMediaQuery, useStatStyles, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useBreakpoint from "../../hooks/useBreakpoint";
@@ -47,7 +47,7 @@ const OrderSection = ({ product }: { product: Product }) => {
 
   useEffect(() => {
     dispatch(sendCartData(cart));
-  }, [cart]);
+  }, [cart.totalQuantity]);
 
   return (
     <VStack as="section">
@@ -64,14 +64,17 @@ const OrderSection = ({ product }: { product: Product }) => {
           Go Back
         </CustomButton>
       </HStack>
-      <HStack
+      <Stack
+        flexDirection={medium ? "row" : "column"}
         gap={{
           lg: "12.45rem",
           md: "6.9rem",
+          sm: "3.2rem",
         }}
-        minW={{
+        w={{
           lg: "111rem",
           md: "69rem",
+          sm: "32.7rem",
         }}>
         <ProductImageCard
           image={large ? product.image.desktop : medium ? product.image.tablet : product.image.mobile}
@@ -91,15 +94,23 @@ const OrderSection = ({ product }: { product: Product }) => {
           }}
           alignItems="flex-start">
           {isNew && <sup>new product</sup>}
-          <Text
+          <Heading
             as="h2"
+            size="4xl"
             color="black"
-            mb="3.2rem !important">
+            mb="3.2rem !important"
+            m={{
+              md: "0 0 3.2rem !important",
+              sm: "2.4rem 0 !important",
+            }}>
             {product.name}
-          </Text>
+          </Heading>
           <Text
             as="p"
-            mb="3.2rem !important">
+            mb={{
+              md: "3.2rem !important",
+              sm: "2.4rem !important",
+            }}>
             {product.description}
           </Text>
           <Text
@@ -107,7 +118,10 @@ const OrderSection = ({ product }: { product: Product }) => {
             color="black"
             fontSize="1.8rem"
             fontWeight="700"
-            mb="4.7rem !important">
+            mb={{
+              md: "4.7rem !important",
+              sm: "3.1rem !important",
+            }}>
             {`${numberWithCommas(product.price)} €`}
           </Text>
           <HStack gap="1.6rem">
@@ -118,7 +132,7 @@ const OrderSection = ({ product }: { product: Product }) => {
             <CustomButton onClick={addItemToCartHandler}>add to cart</CustomButton>
           </HStack>
         </VStack>
-      </HStack>
+      </Stack>
     </VStack>
   );
 };

@@ -38,7 +38,10 @@ const Summary = ({ cart, shippingCosts, vat, grandTotal }: SummaryProps) => {
 
   return (
     <Card
-      w="35rem"
+      w={{
+        lg: "35rem",
+        md: "full",
+      }}
       h="fit-content"
       p="3.2rem"
       gap="3.2rem">

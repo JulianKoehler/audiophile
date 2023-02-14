@@ -1,29 +1,33 @@
-import { Image, Stack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Image, Stack, Text, VStack } from "@chakra-ui/react";
 import CustomerImageLg from "../../assets/shared/desktop/image-best-gear.jpg";
 import CustomerImageMd from "../../assets/shared/tablet/image-best-gear.jpg";
+import CustomerImageSm from "../../assets/shared/mobile/image-best-gear.jpg";
+import useBreakpoint from "../../hooks/useBreakpoint";
 
 const About = () => {
-  const [lg] = useMediaQuery("(min-width: 73rem)");
+  const { large, medium } = useBreakpoint();
 
   return (
     <Stack
       as="section"
       flexDirection={{
         lg: "row",
-        md: "column-reverse",
+        sm: "column-reverse",
       }}
       alignItems={{
         lg: "unset",
-        md: "center",
+        sm: "center",
       }}
       textAlign={{
         lg: "unset",
-        md: "center",
+        sm: "center",
       }}
+      w="90%"
       maxW="111rem"
       gap={{
         lg: "12.5rem",
         md: "6.3rem",
+        sm: "4rem",
       }}>
       <VStack
         w="100%"
@@ -57,8 +61,9 @@ const About = () => {
         maxW={{
           lg: "unset",
           md: "90%",
+          sm: "32.7rem",
         }}
-        src={lg ? CustomerImageLg : CustomerImageMd}
+        src={large ? CustomerImageLg : medium ? CustomerImageMd : CustomerImageSm}
         alt="A customer listening to music with our XX99 Mark II"
       />
     </Stack>

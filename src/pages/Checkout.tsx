@@ -21,7 +21,10 @@ const Checkout = () => {
     <VStack
       as="main"
       my="7.9rem"
-      px="16.5rem"
+      px={{
+        lg: "16.5rem",
+        md: "4rem",
+      }}
       alignItems="center">
       <HStack
         w="100%"
@@ -29,7 +32,8 @@ const Checkout = () => {
         <CustomButton
           onClick={() => navigate(-1)}
           variant="link"
-          mr="auto">
+          mr="auto"
+          mb="2.4rem">
           Go Back
         </CustomButton>
       </HStack>

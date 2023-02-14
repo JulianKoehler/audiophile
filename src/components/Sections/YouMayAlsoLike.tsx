@@ -1,4 +1,4 @@
-import { ChakraProps, GridItem, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { ChakraProps, GridItem, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import Product from "../../types/Product";
@@ -16,15 +16,25 @@ const YouMayAlsoLike = ({ product }: Props) => {
       w="fit-content"
       gap="3.2rem">
       <Image
-        mb="0.8rem"
+        mb={{
+          md: "0.8rem",
+          sm: 0,
+        }}
         w={{
           lg: "35rem",
           md: "22.3rem",
+          sm: "32.7rem",
         }}
+        borderRadius="0.8rem"
         src={large ? item.image.desktop : medium ? item.image.tablet : item.image.mobile}
         alt={product.name}
       />
-      <Text as="h5">{item.name}</Text>
+      <Heading
+        as="h5"
+        size="2xl"
+        m="0 !important">
+        {item.name}
+      </Heading>
       <Link to={`/${item.category}/${item.slug}`}>
         <CustomButton>see product</CustomButton>
       </Link>
@@ -44,8 +54,14 @@ const YouMayAlsoLike = ({ product }: Props) => {
       }}>
       <Text as="h3">you may also like</Text>
       <SimpleGrid
-        columns={3}
-        spacing="3rem">
+        columns={{
+          md: 3,
+          sm: 1,
+        }}
+        spacing={{
+          md: "3rem",
+          sm: "5.6rem",
+        }}>
         {productsYouMayAlsoLike}
       </SimpleGrid>
     </VStack>

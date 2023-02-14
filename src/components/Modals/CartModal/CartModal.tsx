@@ -18,6 +18,7 @@ import CartItem from "./CartItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { sendCartData } from "../../../store/cartActions";
+import useBreakpoint from "../../../hooks/useBreakpoint";
 
 type CartModalProps = {
   isOpen: boolean;
@@ -26,6 +27,7 @@ type CartModalProps = {
 
 const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   const cart = useAppSelector(state => state.cart);
+  const { large } = useBreakpoint();
   const { pathname } = useLocation();
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
@@ -47,6 +49,12 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   useEffect(() => {
     onClose();
   }, [pathname]);
+
+  useEffect(() => {
+    console.log("Changed: ", cart);
+
+    dispatch(sendCartData(cart));
+  }, [cart]);
 
   const listofItems = cart.items.map(item => {
     return (
@@ -76,7 +84,7 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
       <ModalOverlay />
       <ModalContent
         padding="3.1rem"
-        containerProps={{ justifyContent: "flex-end", paddingRight: "16.5rem" }}>
+        containerProps={{ justifyContent: "flex-end", paddingRight: large ? "16.5rem" : "4rem" }}>
         <ModalHeader
           p={0}
           w="full">

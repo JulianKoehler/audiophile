@@ -1,4 +1,4 @@
-import { useLoaderData } from "react-router-dom";
+import { LoaderFunctionArgs, useLoaderData } from "react-router-dom";
 import ProductDetailPageLayout from "../components/Layout/ProductDetailPageLayout";
 import firebaseConfig from "../firebase";
 import Product from "../types/Product";
@@ -12,13 +12,7 @@ const ProductDetails = () => {
 
 export default ProductDetails;
 
-interface RouteParams {
-  params: {
-    productSlug: string;
-  };
-}
-
-export async function loader({ params }: RouteParams) {
+export async function loader({ params }: LoaderFunctionArgs) {
   const productSlug = params.productSlug;
 
   const query = `?orderBy="slug"&equalTo="${productSlug}"`;

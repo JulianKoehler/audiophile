@@ -1,11 +1,13 @@
-import { Box, ChakraProps, UnorderedList } from "@chakra-ui/react";
+import { Box, ChakraProps, FlexProps, ResponsiveValue, UnorderedList } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
+import useBreakpoint from "../../hooks/useBreakpoint";
 
 interface NavbarProps extends ChakraProps {
   [rest: string]: any;
 }
 
 const LgNavbar = ({ ...rest }: NavbarProps) => {
+  const { medium } = useBreakpoint();
   return (
     <Box
       as="nav"
@@ -15,7 +17,9 @@ const LgNavbar = ({ ...rest }: NavbarProps) => {
         listStyleType="none"
         display="flex"
         gap="3.4rem"
-        margin={0}>
+        margin={0}
+        flexDirection={medium ? "row" : "column"}
+        alignItems="center">
         <li>
           <NavLink to="/">HOME</NavLink>
         </li>

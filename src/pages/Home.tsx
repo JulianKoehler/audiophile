@@ -1,16 +1,18 @@
-import { HStack, Image, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import heroImageLarge from "../assets/home/desktop/image-hero.jpg";
 import heroImageMedium from "../assets/home/tablet/image-header.jpg";
+import heroImageSmall from "../assets/home/mobile/image-header.jpg";
 import About from "../components/About/About";
 import CategoryCards from "../components/CategoryCards/CategoryCards";
 import LocalHeader from "../components/Header/LocalHeader";
 import ProductPresentationCards from "../components/ProductCards/Homepage/ProductPresentationCards";
 import CustomButton from "../components/UI/CustomButton";
+import useBreakpoint from "../hooks/useBreakpoint";
 
 const Home = () => {
-  const [lg] = useMediaQuery("(min-width: 73rem)");
-  const imageSrc = lg ? heroImageLarge : heroImageMedium;
+  const { large, medium } = useBreakpoint();
+  const imageSrc = large ? heroImageLarge : medium ? heroImageMedium : heroImageSmall;
 
   return (
     <>
@@ -23,11 +25,14 @@ const Home = () => {
           <VStack
             alignItems={{
               lg: "flex-start",
-              md: "center",
+              sm: "center",
             }}
-            textAlign={{ lg: "left", md: "center" }}
+            textAlign={{ lg: "left", sm: "center" }}
             gap="2.4rem"
-            w="calc(100% - 33rem)"
+            w={{
+              md: "calc(100% - 33rem)",
+              sm: "75%",
+            }}
             maxW="111rem"
             top="50%"
             bottom="0"
@@ -42,12 +47,13 @@ const Home = () => {
               opacity="0.5">
               new product
             </Text>
-            <Text
+            <Heading
               as="h1"
+              size="4xl"
               maxW="40rem"
               m="0 !important">
               XX99 Mark II Headphones
-            </Text>
+            </Heading>
             <Text
               color="rgba(255,255,255,0.75)"
               maxW="35rem">
@@ -68,8 +74,16 @@ const Home = () => {
       <VStack
         as="main"
         mt="4rem"
-        pb="20rem"
-        gap="18rem">
+        pb={{
+          lg: "20rem",
+          md: "8.3rem",
+          sm: "12rem",
+        }}
+        gap={{
+          lg: "18rem",
+          md: "11rem",
+          sm: "12rem",
+        }}>
         <CategoryCards />
         <ProductPresentationCards />
         <About />

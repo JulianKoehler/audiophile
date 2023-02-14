@@ -1,4 +1,4 @@
-import { HStack } from "@chakra-ui/react";
+import { HStack, Stack } from "@chakra-ui/react";
 import headphones from "../../assets/shared/desktop/image-category-thumbnail-headphones.png";
 import speakers from "../../assets/shared/desktop/image-category-thumbnail-speakers.png";
 import earphones from "../../assets/shared/desktop/image-category-thumbnail-earphones.png";
@@ -7,10 +7,21 @@ import SingleCard from "./SingleCard";
 
 const CategoryCards = () => {
   return (
-    <HStack
+    <Stack
       as="section"
-      justifyContent="center"
-      gap="3rem">
+      flexDirection={{
+        md: "row",
+        sm: "column",
+      }}
+      justifyContent={{
+        md: "center",
+        sm: "flex-end",
+      }}
+      alignItems="center"
+      gap={{
+        md: "3rem",
+        sm: "6.8rem",
+      }}>
       <Link to="/headphones">
         <SingleCard
           image={headphones}
@@ -29,7 +40,7 @@ const CategoryCards = () => {
           title="earphones"
         />
       </Link>
-    </HStack>
+    </Stack>
   );
 };
 

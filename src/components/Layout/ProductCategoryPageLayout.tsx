@@ -1,4 +1,5 @@
-import { Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Text, VStack } from "@chakra-ui/react";
+import useBreakpoint from "../../hooks/useBreakpoint";
 import Product from "../../types/Product";
 import About from "../About/About";
 import CategoryCards from "../CategoryCards/CategoryCards";
@@ -6,19 +7,18 @@ import LocalHeader from "../Header/LocalHeader";
 import ProductPreviewArticle from "../ProductCards/CategoryPage/ProductPreviewArticle";
 
 type Props = {
-  productData: Product[];
+  productData: Array<Product>;
   pageHeading: "headphones" | "speakers" | "earphones";
 };
 
 const ProductCategoryPageLayout = ({ productData, pageHeading }: Props) => {
   const sortedData = productData.sort((product: Product) => (product.new ? -1 : 1));
-  const [lg] = useMediaQuery("(min-width: 73rem)");
-  const [md] = useMediaQuery("(min-width: 45rem)");
+  const { large, medium } = useBreakpoint();
 
   const productCards = sortedData.map((product: Product, index: number) => {
-    const imageSrc = lg
+    const imageSrc = large
       ? product.categoryImage.desktop
-      : md
+      : medium
       ? product.categoryImage.tablet
       : product.categoryImage.mobile;
 
@@ -48,7 +48,10 @@ const ProductCategoryPageLayout = ({ productData, pageHeading }: Props) => {
       </LocalHeader>
       <VStack
         as="main"
-        gap="16rem"
+        gap={{
+          lg: "16rem",
+          sm: "12rem",
+        }}
         my="16rem"
         w="100%"
         px={{

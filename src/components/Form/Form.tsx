@@ -94,7 +94,11 @@ const Form = () => {
 
   return (
     <form onSubmit={formik.handleSubmit}>
-      <HStack
+      <Stack
+        flexDirection={{
+          lg: "row",
+          md: "column",
+        }}
         alignItems="flex-start"
         gap="3rem">
         <Card padding="4.8rem">
@@ -270,7 +274,7 @@ const Form = () => {
           vat={vat}
           grandTotal={grandTotal}
         />
-      </HStack>
+      </Stack>
       <OrderConfirmationModal
         isOpen={isOpen}
         onClose={onClose}

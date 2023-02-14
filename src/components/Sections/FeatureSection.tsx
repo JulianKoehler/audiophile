@@ -1,4 +1,4 @@
-import { HStack, ListItem, Stack, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import { Heading, HStack, ListItem, Stack, Text, UnorderedList, VStack } from "@chakra-ui/react";
 import Product from "../../types/Product";
 
 const FeatureSection = ({ product }: { product: Product }) => {
@@ -22,15 +22,24 @@ const FeatureSection = ({ product }: { product: Product }) => {
       as="section"
       flexDirection={{
         lg: "row",
-        md: "column",
+        sm: "column",
       }}
-      gap="12.5rem">
+      gap={{
+        md: "12.5rem",
+        sm: "8.8rem",
+      }}>
       <VStack
         alignItems="flex-start"
         gap="3.2rem"
-        w="63.5rem"
-        h="31.8rem">
-        <Text as="h3">features</Text>
+        w={{
+          md: "63.5rem",
+          sm: "32.7rem",
+        }}>
+        <Heading
+          as="h3"
+          size="2xl">
+          features
+        </Heading>
         <Text as="p">{product.features}</Text>
       </VStack>
       <Stack
@@ -38,10 +47,11 @@ const FeatureSection = ({ product }: { product: Product }) => {
           lg: "35rem",
           md: "full",
         }}
-        h="32.8rem"
+        h="fit-content"
         flexDirection={{
           lg: "column",
           md: "row",
+          sm: "column",
         }}
         alignItems="flex-start"
         justifyContent="flex-start"
@@ -49,11 +59,12 @@ const FeatureSection = ({ product }: { product: Product }) => {
           lg: "unset",
           md: "16rem",
         }}>
-        <Text
+        <Heading
           as="h3"
+          size="2xl"
           mb="3.2rem">
           in the box
-        </Text>
+        </Heading>
         <UnorderedList listStyleType="none">{includedAccessories}</UnorderedList>
       </Stack>
     </Stack>

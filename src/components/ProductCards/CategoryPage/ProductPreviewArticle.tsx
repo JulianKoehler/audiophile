@@ -1,5 +1,6 @@
-import { Card, HStack, Image, Stack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Card, Heading, HStack, Image, Stack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
+import useBreakpoint from "../../../hooks/useBreakpoint";
 import CustomButton from "../../UI/CustomButton";
 import ProductImageCard from "../Image/ProductImageCard";
 
@@ -25,50 +26,70 @@ const ProductPreviewArticle = ({
   infront or behind the VStack Element. Additionally I need to check the breakpoint, since this pattern is only
   applied for desktop size. */
   const indexIsOdd = (index + 1) % 2 > 0;
-  const [lg] = useMediaQuery("(min-width: 73rem)");
+  const { large } = useBreakpoint();
 
   return (
     <Stack
       as="article"
       w="111rem"
+      maxW={{
+        md: "unset",
+        sm: "90%",
+      }}
       gap={{
         lg: "12.5rem",
         md: "5.2rem",
+        sm: "3.2rem",
       }}
       alignItems="center"
       flexDirection={{
         lg: "row",
-        md: "column",
+        sm: "column",
       }}>
-      {indexIsOdd && lg && <ProductImageCard image={image} />}
-      {!lg && <ProductImageCard image={image} />}
+      {indexIsOdd && large && <ProductImageCard image={image} />}
+      {!large && <ProductImageCard image={image} />}
       <VStack
         w="44.5rem"
         alignItems={{
           lg: "flex-start",
-          md: "center",
+          sm: "center",
         }}
         textAlign={{
           lg: "left",
-          md: "center",
+          sm: "center",
         }}>
         {isNew && <sup>new product</sup>}
-        <Text
+        <Heading
           as="h2"
+          size="4xl"
           color="black"
-          mb="3.2rem !important">
+          m={{
+            md: "0 0 3.2rem !important",
+            sm: "2.4rem 0 !important",
+          }}
+          maxW={{
+            md: "unset",
+            sm: "80%",
+          }}>
           {name}
-        </Text>
+        </Heading>
         <Text
           as="p"
-          mb="4rem !important">
+          mb={{
+            md: "4rem !important",
+            sm: "2.4rem !important",
+          }}
+          maxW={{
+            md: "unset",
+            sm: "90%",
+          }}>
           {description}
         </Text>
         <Link to={linkToProduct}>
           <CustomButton>see product</CustomButton>
         </Link>
       </VStack>
-      {!indexIsOdd && lg && <ProductImageCard image={image} />}
+      {!indexIsOdd && large && <ProductImageCard image={image} />}
     </Stack>
   );
 };

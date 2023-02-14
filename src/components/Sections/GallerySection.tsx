@@ -1,5 +1,4 @@
 import { Grid, GridItem, Image } from "@chakra-ui/react";
-import React from "react";
 
 type GalleryProps = {
   image1: string;
@@ -12,17 +11,22 @@ const GallerySection = ({ image1, image2, image3 }: GalleryProps) => {
     <Grid
       as="section"
       w="100%"
+      gap="1.8rem"
       maxW={{
         lg: "111rem",
         md: "69rem",
+        sm: "32.7rem",
       }}
-      templateColumns="1fr 1fr">
+      templateColumns={{
+        md: "1fr 1fr",
+        sm: "1fr",
+      }}>
       <GridItem
         display="flex"
         flexDirection="column"
         gap={{
           lg: "3.2rem",
-          md: "2rem",
+          sm: "2rem",
         }}
         w={{
           lg: "44.5rem",
