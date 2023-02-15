@@ -57,6 +57,8 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   }, [cart]);
 
   const listofItems = cart.items.map(item => {
+    console.log(item.quantity);
+
     return (
       <HStack
         key={item.id}
@@ -67,7 +69,7 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
         <QuantityInput
           ml="auto !important"
           min={0}
-          value={item.quantity}
+          value={Number.isNaN(item.quantity) ? "" : item.quantity}
           onChange={(valueAsString, valueAsNumber) =>
             changeQuantityHandler(valueAsString, valueAsNumber, item.id)
           }
@@ -98,7 +100,7 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
           <Text
             as="h6"
             display="inline">
-            cart ({cart.totalQuantity})
+            cart ({Number.isNaN(cart.totalQuantity) ? "" : cart.totalQuantity})
           </Text>
           {!isCartEmpty && (
             <Text
