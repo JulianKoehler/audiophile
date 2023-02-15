@@ -118,6 +118,7 @@ const GlobalStyles = createGlobalStyle`
 
   a {
     font-family: inherit;
+    margin: 0 !important;
 
     &:hover {
       color: var(--dark-orange);

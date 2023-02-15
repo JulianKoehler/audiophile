@@ -10,7 +10,7 @@ const GallerySection = ({ image1, image2, image3 }: GalleryProps) => {
   return (
     <Grid
       as="section"
-      w="100%"
+      // w="100%"
       gap="1.8rem"
       maxW={{
         lg: "111rem",

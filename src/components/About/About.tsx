@@ -22,7 +22,6 @@ const About = () => {
         lg: "unset",
         sm: "center",
       }}
-      w="90%"
       maxW="111rem"
       gap={{
         lg: "12.5rem",
@@ -58,8 +57,8 @@ const About = () => {
       </VStack>
       <Image
         borderRadius="0.8rem"
-        maxW={{
-          lg: "unset",
+        w={{
+          lg: "54rem",
           md: "90%",
           sm: "32.7rem",
         }}
