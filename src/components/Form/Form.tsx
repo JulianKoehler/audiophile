@@ -24,6 +24,7 @@ import { sendOrder } from "../../store/cartActions";
 import { clearCart } from "../../store/cartSlice";
 import OrderConfirmationModal from "../Modals/OrderConfirmation/OrderConfirmationModal";
 import { orderStatus } from "../../store/orderSlice";
+import { useEffect } from "react";
 
 const Form = () => {
   const cart = useAppSelector(state => state.cart);
@@ -85,13 +86,16 @@ const Form = () => {
       );
 
       if (order.orderStatus === orderStatus.SUCCESS) {
-        onOpen();
         actions.resetForm();
       }
     },
   });
 
-  console.log(formik.values.paymentMethod);
+  useEffect(() => {
+    if (order.orderStatus === orderStatus.SUCCESS) {
+      onOpen();
+    }
+  }, [order.orderStatus]);
 
   return (
     <form onSubmit={formik.handleSubmit}>

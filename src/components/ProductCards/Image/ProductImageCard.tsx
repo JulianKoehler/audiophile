@@ -9,7 +9,8 @@ const ProductImageCard = ({ image, ...rest }: ProductImageCard) => {
   return (
     <Card
       w="fit-content"
-      h="fit-content">
+      h="fit-content"
+      {...rest}>
       <Image
         w={{
           lg: "54rem",
@@ -22,9 +23,9 @@ const ProductImageCard = ({ image, ...rest }: ProductImageCard) => {
         // }}
         h={{
           lg: "56rem",
+          md: "48rem",
           sm: "35rem",
         }}
-        {...rest}
         src={image}
         alt="the product"
         objectFit="cover"
