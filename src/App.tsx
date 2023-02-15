@@ -37,8 +37,6 @@ function App() {
     dispatch(getCartData());
   }, [dispatch]);
 
-  console.log(customTheme);
-
   return (
     <ThemeProvider theme={customTheme}>
       <GlobalStyles />

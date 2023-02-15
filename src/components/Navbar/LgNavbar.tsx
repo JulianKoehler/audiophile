@@ -1,4 +1,4 @@
-import { Box, ChakraProps, FlexProps, ResponsiveValue, UnorderedList } from "@chakra-ui/react";
+import { Box, ChakraProps, UnorderedList } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 import useBreakpoint from "../../hooks/useBreakpoint";
 

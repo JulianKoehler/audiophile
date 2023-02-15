@@ -1,4 +1,4 @@
-import { Box, ChakraProps, InputProps, Radio } from "@chakra-ui/react";
+import { Box, ChakraProps, Radio } from "@chakra-ui/react";
 import React from "react";
 
 interface Props extends ChakraProps {

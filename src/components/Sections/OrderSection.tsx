@@ -1,4 +1,4 @@
-import { Heading, HStack, Stack, Text, useMediaQuery, useStatStyles, VStack } from "@chakra-ui/react";
+import { Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import useBreakpoint from "../../hooks/useBreakpoint";

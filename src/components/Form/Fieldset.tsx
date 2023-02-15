@@ -1,5 +1,5 @@
 import { ChakraProps, VStack } from "@chakra-ui/react";
-import { FieldsetHTMLAttributes, ReactNode } from "react";
+import { ReactNode } from "react";
 
 interface Props extends ChakraProps {
   children: ReactNode;

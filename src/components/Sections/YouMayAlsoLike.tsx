@@ -1,4 +1,4 @@
-import { ChakraProps, GridItem, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
+import { ChakraProps, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import useBreakpoint from "../../hooks/useBreakpoint";
 import Product from "../../types/Product";

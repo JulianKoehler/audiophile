@@ -31,7 +31,6 @@ export const orderSlice = createSlice({
       state.orderStatus = action.payload.orderStatus;
       state.items = action.payload.items;
       state.grandTotal = action.payload.grandTotal;
-      console.log(state);
     },
     setOrderStatus(state, action: PayloadAction<orderStatus>) {
       state.orderStatus = action.payload;

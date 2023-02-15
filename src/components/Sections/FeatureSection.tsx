@@ -1,4 +1,4 @@
-import { Heading, HStack, ListItem, Stack, Text, UnorderedList, VStack } from "@chakra-ui/react";
+import { Heading, ListItem, Stack, Text, UnorderedList, VStack } from "@chakra-ui/react";
 import Product from "../../types/Product";
 
 const FeatureSection = ({ product }: { product: Product }) => {

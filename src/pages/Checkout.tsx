@@ -1,5 +1,5 @@
 import { HStack, VStack } from "@chakra-ui/react";
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form/Form";
 import CustomButton from "../components/UI/CustomButton";
@@ -10,12 +10,11 @@ const Checkout = () => {
   const items = useAppSelector(state => state.cart.items);
   const isCardEmpty = items.length < 1;
 
-  // useEffect(() => {
-  //   if (isCardEmpty) {
-  //     navigate("/");
-  //     return;
-  //   }
-  // }, []);
+  useEffect(() => {
+    if (isCardEmpty) {
+      navigate("/");
+    }
+  }, []);
 
   return (
     <VStack

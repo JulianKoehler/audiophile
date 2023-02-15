@@ -1,4 +1,4 @@
-import { Card, Heading, HStack, Image, Stack, Text, useMediaQuery, VStack } from "@chakra-ui/react";
+import { Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
 import useBreakpoint from "../../../hooks/useBreakpoint";
 import CustomButton from "../../UI/CustomButton";

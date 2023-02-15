@@ -1,4 +1,4 @@
-import { Box, ChakraComponent, ChakraProps, VStack } from "@chakra-ui/react";
+import { ChakraProps, VStack } from "@chakra-ui/react";
 import { ReactNode } from "react";
 
 interface LocalHeaderProps extends ChakraProps {

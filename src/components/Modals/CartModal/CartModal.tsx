@@ -51,14 +51,10 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   }, [pathname]);
 
   useEffect(() => {
-    console.log("Changed: ", cart);
-
     dispatch(sendCartData(cart));
   }, [cart]);
 
   const listofItems = cart.items.map(item => {
-    console.log(item.quantity);
-
     return (
       <HStack
         key={item.id}

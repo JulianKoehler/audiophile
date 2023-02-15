@@ -1,4 +1,4 @@
-import { Box, Container, HStack, Image, useDisclosure, VStack } from "@chakra-ui/react";
+import { Box, HStack, Image, useDisclosure, VStack } from "@chakra-ui/react";
 import logo from "../../assets/shared/desktop/logo.svg";
 import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
 import LgNavbar from "../Navbar/LgNavbar";

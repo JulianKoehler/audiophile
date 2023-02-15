@@ -14,7 +14,7 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import checkIcon from "../../../assets/checkout/icon-order-confirmation.svg";
 import { clearCart, ICartItem } from "../../../store/cartSlice";
