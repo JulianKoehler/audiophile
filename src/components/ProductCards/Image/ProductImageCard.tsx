@@ -17,10 +17,6 @@ const ProductImageCard = ({ image, ...rest }: ProductImageCard) => {
           md: "69rem",
           sm: "32.7rem",
         }}
-        // minW={{
-        //   lg: "38.5rem",
-        //   md: "28.1rem",
-        // }}
         h={{
           lg: "56rem",
           md: "48rem",
