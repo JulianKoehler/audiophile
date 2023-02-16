@@ -24,6 +24,7 @@ const ProductImageCard = ({ image, ...rest }: ProductImageCard) => {
         }}
         src={image}
         alt="the product"
+        loading="lazy"
         objectFit="cover"
       />
     </Card>
