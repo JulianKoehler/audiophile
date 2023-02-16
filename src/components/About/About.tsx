@@ -22,7 +22,10 @@ const About = () => {
         lg: "unset",
         sm: "center",
       }}
-      maxW="111rem"
+      maxW={{
+        md: "111rem",
+        sm: "87%",
+      }}
       gap={{
         lg: "12.5rem",
         md: "6.3rem",
