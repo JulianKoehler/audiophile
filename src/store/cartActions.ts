@@ -1,5 +1,5 @@
 import firebaseConfig from "../firebase";
-import { CartState, setCartData } from "./cartSlice";
+import { CartState, FetchStatus, setCartData, setFetchStatus } from "./cartSlice";
 import { Dispatch } from "redux";
 import Order from "../types/Order";
 import { orderStatus, setOrderData, setOrderStatus } from "./orderSlice";
@@ -31,12 +31,15 @@ export function sendCartData(cartData: CartState) {
 export function getCartData() {
   return async (dispatch: Dispatch) => {
     async function getData() {
+      dispatch(setFetchStatus(FetchStatus.LOADING));
+
       const res = await fetch(firebaseConfig.dbCartData);
 
       if (!res.ok) {
         throw new Error("Could not get cart data");
       }
 
+      dispatch(setFetchStatus(FetchStatus.SUCCESS));
       return await res.json();
     }
 
@@ -51,6 +54,7 @@ export function getCartData() {
         })
       );
     } catch (err) {
+      dispatch(setFetchStatus(FetchStatus.FAILED));
       console.log(err);
     }
   };

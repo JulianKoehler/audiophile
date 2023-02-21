@@ -19,6 +19,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import checkIcon from "../../../assets/checkout/icon-order-confirmation.svg";
 import { clearCart, ICartItem } from "../../../store/cartSlice";
 import { useAppDispatch } from "../../../store/hooks";
+import { orderStatus, setOrderStatus } from "../../../store/orderSlice";
 import numberWithCommas from "../../../util/formatPrice";
 import CustomButton from "../../UI/CustomButton";
 import CartItem from "../CartModal/CartItem";
@@ -34,8 +35,7 @@ interface Props extends ChakraProps {
 const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", items, grandTotal }: Props) => {
   const navigate = useNavigate();
   const dispatch = useAppDispatch();
-  const { pathname } = useLocation();
-  const [showAllItems, setShowAllItems] = useState<boolean>(false);
+  const [showAllItems, setShowAllItems] = useState(false);
 
   const orderedItems = items.map((item, index) => {
     if (!showAllItems) {
@@ -73,6 +73,7 @@ const OrderConfirmationModal = ({ isOpen, onClose, orderNumber = "undefined", it
   function handleCloseModal() {
     navigate("/");
     dispatch(clearCart());
+    dispatch(setOrderStatus(orderStatus.NOT_SENT));
   }
 
   return (

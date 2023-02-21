@@ -13,13 +13,11 @@ const emotionCache = createCache({
 });
 
 ReactDOM.createRoot(document.getElementById("root") as HTMLElement).render(
-  <React.StrictMode>
-    <CacheProvider value={emotionCache}>
-      <ChakraProvider>
-        <Redux store={store}>
-          <App />
-        </Redux>
-      </ChakraProvider>
-    </CacheProvider>
-  </React.StrictMode>
+  <CacheProvider value={emotionCache}>
+    <ChakraProvider>
+      <Redux store={store}>
+        <App />
+      </Redux>
+    </ChakraProvider>
+  </CacheProvider>
 );

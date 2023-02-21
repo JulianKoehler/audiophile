@@ -3,18 +3,28 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Form from "../components/Form/Form";
 import CustomButton from "../components/UI/CustomButton";
+import { FetchStatus } from "../store/cartSlice";
 import { useAppSelector } from "../store/hooks";
 
 const Checkout = () => {
   const navigate = useNavigate();
   const items = useAppSelector(state => state.cart.items);
+  const fetchStatus = useAppSelector(state => state.cart.status);
   const isCardEmpty = items.length < 1;
 
   useEffect(() => {
-    if (isCardEmpty) {
-      navigate("/");
+    console.log(fetchStatus, isCardEmpty);
+
+    if (fetchStatus === FetchStatus.SUCCESS) {
+      console.log(isCardEmpty);
+
+      if (isCardEmpty) {
+        console.log("Navigating now");
+
+        navigate("/");
+      }
     }
-  }, []);
+  }, [fetchStatus, isCardEmpty]);
 
   return (
     <VStack

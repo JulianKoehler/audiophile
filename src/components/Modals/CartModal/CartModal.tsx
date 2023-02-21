@@ -9,14 +9,14 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { adjustCartItemQuantity, clearCart } from "../../../store/cartSlice";
+import { adjustCartItemQuantity, clearCart, FetchStatus } from "../../../store/cartSlice";
 import { useAppDispatch, useAppSelector } from "../../../store/hooks";
 import CustomButton from "../../UI/CustomButton";
 import numberWithCommas from "../../../util/formatPrice";
 import QuantityInput from "../../UI/QuantityInput";
 import CartItem from "./CartItem";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { sendCartData } from "../../../store/cartActions";
 import useBreakpoint from "../../../hooks/useBreakpoint";
 
@@ -32,12 +32,13 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const isCartEmpty = cart.totalQuantity < 1;
+  const isInitialPageLoad = useRef(true);
 
   function removeItemsHandler() {
     dispatch(clearCart());
   }
 
-  function changeQuantityHandler(valueAsString: string, valueAsNumber: number, id: number) {
+  function changeQuantityHandler(_: string, valueAsNumber: number, id: number) {
     dispatch(adjustCartItemQuantity({ id, quantity: valueAsNumber }));
   }
 
@@ -51,8 +52,12 @@ const CartModal = ({ isOpen, onClose }: CartModalProps) => {
   }, [pathname]);
 
   useEffect(() => {
+    if (isInitialPageLoad.current) {
+      isInitialPageLoad.current = false;
+      return;
+    }
     dispatch(sendCartData(cart));
-  }, [cart]);
+  }, [cart.adjustments]);
 
   const listofItems = cart.items.map(item => {
     return (
