@@ -8,8 +8,8 @@ import {
   ModalOverlay,
   useDisclosure,
 } from "@chakra-ui/react";
-import burgerMenuIcon from "../../assets/shared/tablet/icon-hamburger.svg";
-import CategoryCards from "../CategoryCards/CategoryCards";
+import burgerMenuIcon from "@/assets/shared/tablet/icon-hamburger.svg";
+import CategoryCards from "@/components/CategoryCards/CategoryCards";
 
 interface NavbarProps extends ChakraProps {
   [rest: string]: any;

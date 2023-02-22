@@ -1,9 +1,9 @@
 import { Card, Heading, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import circles from "../../../assets/home/desktop/pattern-circles.svg";
-import useBreakpoint from "../../../hooks/useBreakpoint";
-import { FirstLineCardProps } from "../../../types/CardProps";
-import CustomButton from "../../UI/CustomButton";
+import circles from "@/assets/home/desktop/pattern-circles.svg";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import { FirstLineCardProps } from "@/types/CardProps";
+import CustomButton from "@/components/UI/CustomButton";
 
 const FirstLineProduct = ({ title, image, description, slug }: FirstLineCardProps) => {
   const { large, medium } = useBreakpoint();

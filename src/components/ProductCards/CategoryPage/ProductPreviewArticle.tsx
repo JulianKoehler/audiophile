@@ -1,8 +1,8 @@
 import { Heading, Stack, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import useBreakpoint from "../../../hooks/useBreakpoint";
-import CustomButton from "../../UI/CustomButton";
-import ProductImageCard from "../Image/ProductImageCard";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import CustomButton from "@/components/UI/CustomButton";
+import ProductImageCard from "@/components/ProductCards/Image/ProductImageCard";
 
 type ProductPreviewProps = {
   image: string;

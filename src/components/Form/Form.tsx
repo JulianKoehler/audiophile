@@ -14,15 +14,15 @@ import {
 } from "@chakra-ui/react";
 import { useFormik } from "formik";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import CustomRadioButton from "./CustomRadioButton";
-import cashOnDeliveryIcon from "../../assets/checkout/icon-cash-on-delivery.svg";
+import CustomRadioButton from "@/components/Form/CustomRadioButton";
+import cashOnDeliveryIcon from "@/assets/checkout/icon-cash-on-delivery.svg";
 import Fieldset from "./Fieldset";
 import FormSectionHeading from "./FormSectionHeading";
 import Summary from "./Summary";
 import * as Yup from "yup";
-import { sendOrder } from "../../store/cartActions";
-import OrderConfirmationModal from "../Modals/OrderConfirmation/OrderConfirmationModal";
-import { orderStatus } from "../../store/orderSlice";
+import { sendOrder } from "@/store/cartActions";
+import OrderConfirmationModal from "@/components/Modals/OrderConfirmation/OrderConfirmationModal";
+import { orderStatus } from "@/store/orderSlice";
 import { useEffect } from "react";
 
 const Form = () => {

@@ -1,17 +1,17 @@
 import { VStack } from "@chakra-ui/react";
-import ZX9ImageLg from "../../../assets/home/desktop/image-speaker-zx9.png";
-import ZX9ImageMd from "../../../assets/home/tablet/image-speaker-zx9.png";
-import ZX9ImageSm from "../../../assets/home/mobile/image-speaker-zx9.png";
-import ZX7ImageLg from "../../../assets/home/desktop/image-speaker-zx7.jpg";
-import ZX7ImageMd from "../../../assets/home/tablet/image-speaker-zx7.jpg";
-import ZX7ImageSm from "../../../assets/home/mobile/image-speaker-zx7.jpg";
-import YX1ImageLg from "../../../assets/home/desktop/image-earphones-yx1.jpg";
-import YX1ImageMd from "../../../assets/home/tablet/image-earphones-yx1.jpg";
-import YX1ImageSm from "../../../assets/home/mobile/image-earphones-yx1.jpg";
+import ZX9ImageLg from "@/assets/home/desktop/image-speaker-zx9.png";
+import ZX9ImageMd from "@/assets/home/tablet/image-speaker-zx9.png";
+import ZX9ImageSm from "@/assets/home/mobile/image-speaker-zx9.png";
+import ZX7ImageLg from "@/assets/home/desktop/image-speaker-zx7.jpg";
+import ZX7ImageMd from "@/assets/home/tablet/image-speaker-zx7.jpg";
+import ZX7ImageSm from "@/assets/home/mobile/image-speaker-zx7.jpg";
+import YX1ImageLg from "@/assets/home/desktop/image-earphones-yx1.jpg";
+import YX1ImageMd from "@/assets/home/tablet/image-earphones-yx1.jpg";
+import YX1ImageSm from "@/assets/home/mobile/image-earphones-yx1.jpg";
 import FirstLineProduct from "./FirstLineProduct";
 import SecondLineProduct from "./SecondLineProduct";
 import ThirdLineProduct from "./ThirdLineProduct";
-import useBreakpoint from "../../../hooks/useBreakpoint";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 const ProductCards = () => {
   const { large, medium } = useBreakpoint();

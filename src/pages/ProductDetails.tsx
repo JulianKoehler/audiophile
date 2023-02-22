@@ -1,9 +1,9 @@
 import { Suspense } from "react";
 import { Await, defer, LoaderFunctionArgs, useLoaderData } from "react-router-dom";
-import ProductDetailPageLayout from "../components/Layout/ProductDetailPageLayout";
-import firebaseConfig from "../firebase";
-import Product from "../types/Product";
-import { getProductData } from "../util/httpRequests";
+import ProductDetailPageLayout from "@/components/Layout/ProductDetailPageLayout";
+import firebaseConfig from "@/firebase";
+import Product from "@/types/Product";
+import { getProductData } from "@/util/httpRequests";
 
 const ProductDetails = () => {
   const { product } = useLoaderData() as { product: Product[] };

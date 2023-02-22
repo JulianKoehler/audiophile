@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import { Outlet, useLocation } from "react-router-dom";
-import Footer from "../components/Footer/Footer";
-import GlobalHeader from "../components/Header/GlobalHeader";
+import Footer from "@/components/Footer/Footer";
+import GlobalHeader from "@/components/Header/GlobalHeader";
 
 const Root = () => {
   const { pathname } = useLocation();

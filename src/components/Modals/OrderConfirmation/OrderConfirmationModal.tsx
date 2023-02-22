@@ -15,14 +15,14 @@ import {
   VStack,
 } from "@chakra-ui/react";
 import { useState } from "react";
-import { useLocation, useNavigate } from "react-router-dom";
-import checkIcon from "../../../assets/checkout/icon-order-confirmation.svg";
-import { clearCart, ICartItem } from "../../../store/cartSlice";
-import { useAppDispatch } from "../../../store/hooks";
-import { orderStatus, setOrderStatus } from "../../../store/orderSlice";
-import numberWithCommas from "../../../util/formatPrice";
-import CustomButton from "../../UI/CustomButton";
-import CartItem from "../CartModal/CartItem";
+import { useNavigate } from "react-router-dom";
+import checkIcon from "@/assets/checkout/icon-order-confirmation.svg";
+import { clearCart, ICartItem } from "@/store/cartSlice";
+import { useAppDispatch } from "@/store/hooks";
+import { orderStatus, setOrderStatus } from "@/store/orderSlice";
+import numberWithCommas from "@/util/formatPrice";
+import CustomButton from "@/components/UI/CustomButton";
+import CartItem from "@/components/Modals/CartModal/CartItem";
 
 interface Props extends ChakraProps {
   isOpen: boolean;

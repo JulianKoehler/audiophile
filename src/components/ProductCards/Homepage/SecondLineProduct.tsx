@@ -1,7 +1,7 @@
 import { Card, Heading, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import ProductPresentationCardProps from "../../../types/CardProps";
-import CustomButton from "../../UI/CustomButton";
+import ProductPresentationCardProps from "@/types/CardProps";
+import CustomButton from "@/components/UI/CustomButton";
 
 const SecondLineProduct = ({ title, image, slug }: ProductPresentationCardProps) => {
   return (

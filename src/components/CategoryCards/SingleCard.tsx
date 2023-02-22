@@ -1,6 +1,6 @@
 import { Card, Image } from "@chakra-ui/react";
-import CustomButton from "../UI/CustomButton";
-import arrowRight from "../../assets/shared/desktop/icon-arrow-right.svg";
+import CustomButton from "@/components/UI/CustomButton";
+import arrowRight from "@/assets/shared/desktop/icon-arrow-right.svg";
 
 type CardProps = {
   image: string;

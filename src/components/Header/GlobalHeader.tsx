@@ -1,10 +1,10 @@
 import { Box, HStack, Image, useDisclosure, VStack } from "@chakra-ui/react";
-import logo from "../../assets/shared/desktop/logo.svg";
-import cartIcon from "../../assets/shared/desktop/icon-cart.svg";
-import LgNavbar from "../Navbar/LgNavbar";
+import logo from "@/assets/shared/desktop/logo.svg";
+import cartIcon from "@/assets/shared/desktop/icon-cart.svg";
+import LgNavbar from "@/components/Navbar/LgNavbar";
 import { Link, useLocation } from "react-router-dom";
-import CartModal from "../Modals/CartModal/CartModal";
-import MdNavbar from "../Navbar/MdNavbar";
+import CartModal from "@/components/Modals/CartModal/CartModal";
+import MdNavbar from "@/components/Navbar/MdNavbar";
 
 const GlobalHeader = () => {
   const { isOpen, onOpen, onClose } = useDisclosure();

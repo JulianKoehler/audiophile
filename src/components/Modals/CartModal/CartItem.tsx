@@ -1,7 +1,7 @@
 import { Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import numberWithCommas from "../../../util/formatPrice";
-import ProductImageCard from "../../ProductCards/Image/ProductImageCard";
+import numberWithCommas from "@/util/formatPrice";
+import ProductImageCard from "@/components/ProductCards/Image/ProductImageCard";
 
 type CartItemsProps = {
   item: {

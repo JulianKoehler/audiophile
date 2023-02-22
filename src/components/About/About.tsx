@@ -1,8 +1,8 @@
 import { Image, Stack, Text, VStack } from "@chakra-ui/react";
-import CustomerImageLg from "../../assets/shared/desktop/image-best-gear.jpg";
-import CustomerImageMd from "../../assets/shared/tablet/image-best-gear.jpg";
-import CustomerImageSm from "../../assets/shared/mobile/image-best-gear.jpg";
-import useBreakpoint from "../../hooks/useBreakpoint";
+import CustomerImageLg from "@/assets/shared/desktop/image-best-gear.jpg";
+import CustomerImageMd from "@/assets/shared/tablet/image-best-gear.jpg";
+import CustomerImageSm from "@/assets/shared/mobile/image-best-gear.jpg";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 const About = () => {
   const { large, medium } = useBreakpoint();

@@ -1,8 +1,8 @@
 import { ChakraProps, Heading, Image, SimpleGrid, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import Product from "../../types/Product";
-import CustomButton from "../UI/CustomButton";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import Product from "@/types/Product";
+import CustomButton from "@/components/UI/CustomButton";
 
 interface Props extends ChakraProps {
   product: Product;

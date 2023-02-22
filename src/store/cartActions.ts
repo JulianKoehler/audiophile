@@ -1,7 +1,7 @@
-import firebaseConfig from "../firebase";
+import firebaseConfig from "@/firebase";
 import { CartState, FetchStatus, setCartData, setFetchStatus } from "./cartSlice";
 import { Dispatch } from "redux";
-import Order from "../types/Order";
+import Order from "@/types/Order";
 import { orderStatus, setOrderData, setOrderStatus } from "./orderSlice";
 
 export function sendCartData(cartData: CartState) {

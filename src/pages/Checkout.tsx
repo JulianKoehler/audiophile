@@ -1,10 +1,10 @@
 import { HStack, VStack } from "@chakra-ui/react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Form from "../components/Form/Form";
-import CustomButton from "../components/UI/CustomButton";
-import { FetchStatus } from "../store/cartSlice";
-import { useAppSelector } from "../store/hooks";
+import Form from "@/components/Form/Form";
+import CustomButton from "@/components/UI/CustomButton";
+import { FetchStatus } from "@/store/cartSlice";
+import { useAppSelector } from "@/store/hooks";
 
 const Checkout = () => {
   const navigate = useNavigate();

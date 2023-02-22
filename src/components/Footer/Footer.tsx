@@ -1,8 +1,8 @@
 import { Box, HStack, Image, Stack, Text, VStack } from "@chakra-ui/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faTwitter, faInstagram } from "@fortawesome/free-brands-svg-icons";
-import logo from "../../assets/shared/desktop/logo.svg";
-import LgNavbar from "../Navbar/LgNavbar";
+import logo from "@/assets/shared/desktop/logo.svg";
+import LgNavbar from "@/components/Navbar/LgNavbar";
 
 const Footer = () => {
   return (

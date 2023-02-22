@@ -1,4 +1,4 @@
-import { ICartItem } from "../store/cartSlice";
+import { ICartItem } from "@/store/cartSlice";
 
 interface Order {
   orderNumber: number | string;

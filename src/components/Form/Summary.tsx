@@ -1,11 +1,11 @@
 import { Card, ChakraProps, HStack, Text, UnorderedList, VStack } from "@chakra-ui/react";
-import { CartState } from "../../store/cartSlice";
-import { useAppSelector } from "../../store/hooks";
-import { orderStatus } from "../../store/orderSlice";
-import numberWithCommas from "../../util/formatPrice";
-import CartItem from "../Modals/CartModal/CartItem";
-import CustomButton from "../UI/CustomButton";
-import LoadingSpinner from "../UI/LoadingSpinner";
+import { CartState } from "@/store/cartSlice";
+import { useAppSelector } from "@/store/hooks";
+import { orderStatus } from "@/store/orderSlice";
+import numberWithCommas from "@/util/formatPrice";
+import CartItem from "@/components/Modals/CartModal/CartItem";
+import CustomButton from "@/components/UI/CustomButton";
+import LoadingSpinner from "@/components/UI/LoadingSpinner";
 
 interface SummaryProps extends ChakraProps {
   cart: CartState;

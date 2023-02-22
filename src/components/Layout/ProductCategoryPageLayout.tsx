@@ -1,10 +1,10 @@
 import { Text, VStack } from "@chakra-ui/react";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import Product from "../../types/Product";
-import About from "../About/About";
-import CategoryCards from "../CategoryCards/CategoryCards";
-import LocalHeader from "../Header/LocalHeader";
-import ProductPreviewArticle from "../ProductCards/CategoryPage/ProductPreviewArticle";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import Product from "@/types/Product";
+import About from "@/components/About/About";
+import CategoryCards from "@/components/CategoryCards/CategoryCards";
+import LocalHeader from "@/components/Header/LocalHeader";
+import ProductPreviewArticle from "@/components/ProductCards/CategoryPage/ProductPreviewArticle";
 
 type Props = {
   productData: Array<Product>;

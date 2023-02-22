@@ -9,16 +9,16 @@ import {
   Text,
   VStack,
 } from "@chakra-ui/react";
-import { adjustCartItemQuantity, clearCart, FetchStatus } from "../../../store/cartSlice";
-import { useAppDispatch, useAppSelector } from "../../../store/hooks";
-import CustomButton from "../../UI/CustomButton";
-import numberWithCommas from "../../../util/formatPrice";
-import QuantityInput from "../../UI/QuantityInput";
-import CartItem from "./CartItem";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect, useRef } from "react";
-import { sendCartData } from "../../../store/cartActions";
-import useBreakpoint from "../../../hooks/useBreakpoint";
+import { adjustCartItemQuantity, clearCart } from "@/store/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import { sendCartData } from "@/store/cartActions";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import CustomButton from "@/components/UI/CustomButton";
+import QuantityInput from "@/components/UI/QuantityInput";
+import numberWithCommas from "@/util/formatPrice";
+import CartItem from "./CartItem";
 
 type CartModalProps = {
   isOpen: boolean;

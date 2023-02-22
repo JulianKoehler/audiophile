@@ -1,15 +1,15 @@
 import { Heading, HStack, Stack, Text, VStack } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
-import useBreakpoint from "../../hooks/useBreakpoint";
-import { sendCartData } from "../../store/cartActions";
-import { addItemToCart } from "../../store/cartSlice";
-import { useAppDispatch, useAppSelector } from "../../store/hooks";
-import Product from "../../types/Product";
-import numberWithCommas from "../../util/formatPrice";
-import ProductImageCard from "../ProductCards/Image/ProductImageCard";
-import CustomButton from "../UI/CustomButton";
-import QuantityInput from "../UI/QuantityInput";
+import useBreakpoint from "@/hooks/useBreakpoint";
+import { sendCartData } from "@/store/cartActions";
+import { addItemToCart } from "@/store/cartSlice";
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+import Product from "@/types/Product";
+import numberWithCommas from "@/util/formatPrice";
+import ProductImageCard from "@/components/ProductCards/Image/ProductImageCard";
+import CustomButton from "@/components/UI/CustomButton";
+import QuantityInput from "@/components/UI/QuantityInput";
 
 const OrderSection = ({ product }: { product: Product }) => {
   const [itemQuantity, setItemQuantity] = useState(1);
@@ -47,7 +47,7 @@ const OrderSection = ({ product }: { product: Product }) => {
 
   useEffect(() => {
     dispatch(sendCartData(cart));
-  }, [cart.totalQuantity]);
+  }, [cart.adjustments]);
 
   return (
     <VStack as="section">

@@ -1,14 +1,14 @@
 import { Heading, HStack, Image, Text, VStack } from "@chakra-ui/react";
 import { Link } from "react-router-dom";
-import heroImageLarge from "../assets/home/desktop/image-hero.jpg";
-import heroImageMedium from "../assets/home/tablet/image-header.jpg";
-import heroImageSmall from "../assets/home/mobile/image-header.jpg";
-import About from "../components/About/About";
-import CategoryCards from "../components/CategoryCards/CategoryCards";
-import LocalHeader from "../components/Header/LocalHeader";
-import ProductPresentationCards from "../components/ProductCards/Homepage/ProductPresentationCards";
-import CustomButton from "../components/UI/CustomButton";
-import useBreakpoint from "../hooks/useBreakpoint";
+import heroImageLarge from "@/assets/home/desktop/image-hero.jpg";
+import heroImageMedium from "@/assets/home/tablet/image-header.jpg";
+import heroImageSmall from "@/assets/home/mobile/image-header.jpg";
+import About from "@/components/About/About";
+import CategoryCards from "@/components/CategoryCards/CategoryCards";
+import LocalHeader from "@/components/Header/LocalHeader";
+import ProductPresentationCards from "@/components/ProductCards/Homepage/ProductPresentationCards";
+import CustomButton from "@/components/UI/CustomButton";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 const Home = () => {
   const { large, medium } = useBreakpoint();

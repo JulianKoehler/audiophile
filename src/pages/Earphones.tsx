@@ -1,8 +1,8 @@
 import { useLoaderData } from "react-router-dom";
 import ProductCategoryPageLayout from "../components/Layout/ProductCategoryPageLayout";
-import firebaseConfig from "../firebase";
-import Product from "../types/Product";
-import { getProductData } from "../util/httpRequests";
+import firebaseConfig from "@/firebase";
+import Product from "@/types/Product";
+import { getProductData } from "@/util/httpRequests";
 
 const Earphones = () => {
   const productData = useLoaderData() as Product[];

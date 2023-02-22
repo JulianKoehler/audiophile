@@ -1,12 +1,12 @@
 import { VStack } from "@chakra-ui/react";
-import Product from "../../types/Product";
-import About from "../About/About";
-import CategoryCards from "../CategoryCards/CategoryCards";
-import OrderSection from "../Sections/OrderSection";
-import FeatureSection from "../Sections/FeatureSection";
-import GallerySection from "../Sections/GallerySection";
-import YouMayAlsoLike from "../Sections/YouMayAlsoLike";
-import useBreakpoint from "../../hooks/useBreakpoint";
+import Product from "@/types/Product";
+import About from "@/components/About/About";
+import CategoryCards from "@/components/CategoryCards/CategoryCards";
+import OrderSection from "@/components/Sections/OrderSection";
+import FeatureSection from "@/components/Sections/FeatureSection";
+import GallerySection from "@/components/Sections/GallerySection";
+import YouMayAlsoLike from "@/components/Sections/YouMayAlsoLike";
+import useBreakpoint from "@/hooks/useBreakpoint";
 
 const ProductDetailPageLayout = ({ product }: { product: Product }) => {
   const { large, medium } = useBreakpoint();
